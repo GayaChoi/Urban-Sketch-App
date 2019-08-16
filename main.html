@@ -9,20 +9,44 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>urban</title>
+    <script src="fb.js"></script>
+    <title>urban sketch</title>
 </head>
 <body>
-    <nav>
-       <a>Home</a>
+    <nav>  
+       <a class="btn btn-primary" href="/main.html" role="button">Home</a>
            |
-       <a id="js-login">AddPhoto</a>
-       <div class="fb-login-box js-fb-login">FaceBookLogin</div>   
+       <div id="js-login" class="btn btn-primary">AddPhoto</div>
+       <!-- <div class="btn btn-outline-primary fb-login-box js-fb-login" onclick="checkLoginState();">FaceBookLogin</div> -->
 
+    <!-- 
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button> -->
 
+        <div id="spinner"
+            style="
+                background: #4267b2;
+                border-radius: 5px;
+                color: white;
+                height: 40px;
+                text-align: center;
+                width: 250px;">
+                Loading
+                <div
+                class="fb-login-button"
+                data-max-rows="1"
+                data-size="medium"
+                data-button-type="login_with"
+                data-auto-logout-link="true" 
+                data-use-continue-as="false"
+                ></div>
+       </div>
+
+       <div id="status"></div> 
     </nav> 
     <div id="columns">
         <figure>
-        <img src="">
+        <img src="img/background.jpg">
           <figcaption></figcaption>
         </figure>
         <small></small>
