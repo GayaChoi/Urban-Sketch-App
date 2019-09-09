@@ -1,0 +1,23 @@
+{
+  "name": "urban-sketch-app",
+  "version": "1.0.0",
+  "description": "직접그린 어반스케치를 사람들과 공유하는 프로젝트 입니다.",
+  "engines": {
+    "node": "10.3.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woosungchoi/Urban-Sketch-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woosungchoi/Urban-Sketch-App/issues"
+  },
+  "homepage": "https://github.com/woosungchoi/Urban-Sketch-App#readme"
+}
