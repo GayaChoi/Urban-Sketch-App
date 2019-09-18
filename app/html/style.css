@@ -9,8 +9,8 @@ body {
 /* 메인 페이지 */
 
 #wrap {
-  width: 1000px;
-  height: 900px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   text-align: center;
   font-size: 30px;
@@ -21,8 +21,8 @@ body {
 #header {
    position: fixed;
    top: 0;
-   left: 175px;
-   width: 1000px;
+   left: 0;
+   width: 100%;
    height: 100px;
    line-height: 100px;
    margin: 0 auto;
@@ -36,7 +36,7 @@ body {
   padding:0;
   padding-right: 50px;
   margin: 0 auto;
-  width: 1000px;
+  width: 100%;
   height: 100px; 
   line-height: 60px;
   text-align: right;
@@ -45,9 +45,10 @@ body {
 
 
 #nav>a { 
-  padding-left: 10px;
+  margin: 0 auto;
+  padding: 0; 
   font-weight: bold; 
-  font-size: 20px;
+  font-size: 15px;
   font-family: 'Noto Sans KR',sans-serif;
   color: #bab6b2;
   text-decoration: none;
@@ -59,44 +60,146 @@ body {
 }
 
 
+/* 배너 디자인 */
 #banner {
-   width: 1000px;
-   height: 400px;
+   width: 100%;
+   height: 1000px;
    margin: 0 auto;
-   padding-top: 100px;
+   padding: 0;
+   border: 1px solid tomato;
+}
+
+.banner-title {
+   position: fixed;
+   top: 20%;
+   left: 30px;
+   width: 150px;
+   height: 50px; 
+   color: #000000;
+   font-family: '배달의민족 한나는 열한살';
+   border: 1px solid #eeeeef;
+   background: #eeeeef;
+   box-shadow: 0px 1px 2px rgba(0,0,0,.5); 
+   z-index: 222;
 }
 
 .today {
-   font-size: 20px;
-   font-weight: bold;
-   font-family: 'Noto Sans KR',sans-serif;
-   text-align: left;
-   padding: 20px;
+   position: absolute;
+   width: 100%;
+   top: 0;
+   left: 0;
+   margin: 0 auto;
+   padding-top: 150px;
+   padding-right: 200px;
+   height: 410px;
    color: #000000;
+   font-size: 35px;
+   opacity: 1;
 }
 
-.today-tag {
-    width: 100px;
+.today-text-0 {
+    width: 50px;
     height: 50px;
-    font-size: 10px;
-    font-family: 'Noto Sans KR','sans-serif';
     color: #ffffff;
-    border: 1px solid #c3a1c6;
-    border-radius: 3px;
-    background: #c3a1c6;
+    border: 1px solid #d5b9d2;
+    background: #d5b9d2;
+    display: inline-block;
 }
+
+.today-text-1 {
+   width: 50px;
+   height: 50px;
+   color: #ffffff;
+   border: 1px solid #c7a8c4;
+   background: #c7a8c4;
+   display: inline-block;
+}
+
+.today-text-2 {
+   width: 50px;
+   height: 50px;
+   color: #ffffff;
+   border: 1px solid #c3a1c7;
+   background: #c3a1c7;
+   display: inline-block;
+}
+
+.word {
+   position: absolute;
+   width: 200px;
+   height: 100px;
+   opacity: 0;
+}
+
+div.today>p { 
+  display: inline-block;
+  vertical-align: top;
+  margin: 0; 
+}
+
+
+.letter {
+   display: inline-block;
+   position: relative;
+   transform: translateZ(20px);
+   transform-origin: 50% 50% 25px;
+ }
+
+
+/* 글자가 바깥쪽으로 변형하는 모션 */
+ .letter.out {
+   transform: rotateX(90deg); 
+   transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+ }
+ 
+ .letter.behind {
+   transform: rotateX(-90deg);
+ }
+ 
+ /* 글자가 안으로 변형하는 모션 */
+ .letter.in {
+   transform: rotateX(0deg);
+   transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ }
+ 
+ .wisteria {
+   color: #8e44ad;
+ }
+ 
+ .belize {
+   color: #2980b9;
+ }
+ 
+ .pomegranate {
+   color: #c0392b;
+ }
+ 
+ .green {
+   color: #16a085;
+ }
+ 
+ .midnight {
+   color: #2c3e50;
+ }
  
 
 /*  배너 디자인 */
 .bd-example {
-   width: 1000px;
-   height: 400px;
+   width: 100%;
+   height: 1000px;
    padding: 0;
-   margin: 0 auto;
+   margin: 0;
    font-size: 15px;
    z-index: -333;
 }
 
+.carousel-control-prev {
+   z-index: 3;
+}
+
+.carousel-control-next {
+   z-index: 3;
+}
 
 /* width 값은 무조건 부모를 상속 받게 되어있음 */
 .w-100 { 
@@ -108,20 +211,9 @@ div.carousel-caption {
    color: #000000;
 }
 
-
 .carousel-img {
     width: 100%;
-    height: 400px;
-} 
-
-
-#side_left {
-   float: left;
-   width: 300px;
-   height: 800px;
-   line-height: 100px;
-   padding-top: 300px;
-   margin: 0 auto;
+    height: 1000px;
 }
 
 .box-line {
@@ -130,40 +222,44 @@ div.carousel-caption {
    box-shadow: 0 4px 2px -2px rgba(0,0,0,.3);
 }
 
-#contents {
-   float: left;
-   width: 400px;
-   height: 800px;
-   line-height: 100px;
-   padding-top: 300px;
-   margin: 0 auto;
-}
-
-section>div.contents-box {
-   padding-left: 100px; 
-}
-
-.box-line-2 {
-    padding-left: 100px;
-}
-
-
-#side_right {
-   float: left;
+#side_left {
    width: 300px;
    height: 800px;
    line-height: 100px;
-   padding-top: 300px;
+   padding-top: 100px;
    margin: 0 auto;
+   display: inline-block;
+   border: 1px solid #000000;
+}
+
+#contents {
+   width: 300px;
+   height: 800px;
+   line-height: 100px;
+   padding-top: 100px;
+   margin: 0 auto;
+   display: inline-block;
+   border: 1px solid #000000;
+}
+
+#side_right {
+   width: 300px;
+   height: 800px;
+   line-height: 100px;
+   padding-top: 100px;
+   margin: 0 auto;
+   display: inline-block;
+   border: 1px solid #000000;
 }
 
 #footer {
    clear: both;
-   width: 1000px;
+   width: 100%;
    height: 100px;
    margin: 0 auto;
    border-top: 2px solid #ececec; 
    border-bottom: 5px solid #66436b;
+   font-family: 'Noto Sans KR',sans-serif; 
    color: #000000;
 }
 
@@ -190,13 +286,13 @@ div#footer>a {
    height: 0px;
    line-height: 30px;
    padding-top: 10px;
-   padding-left: 20px;
+   padding-left: 30px;
    text-align: left; 
 }
 
 .wrap-logo-title {
    color: #000000;
-   font-size: 30px;
+   font-size: 25px;
    font-family: '배달의민족 연성';
 }
 
@@ -211,18 +307,13 @@ div#footer>a {
 
 
 .box {
-   width: 100%;
-   height: 400px;
-   padding: 10px;
    padding-left: 60px;
-   padding-top: 18px;
+   padding-top: 0;
    padding-right: 100px;
    color: #000000;
    font-family: '배달의민족 한나는 열한살';
    text-decoration: none;
 }
-
-
 
 ul.box-list {
    margin: 0;
@@ -235,6 +326,7 @@ li.box-list-text {
    font-family: 'Noto Sans KR',sans-serif;
    line-height: 20px;
    text-align: left;
+   color: #000000;
 }
 
 
@@ -249,7 +341,7 @@ li.box-list-text {
    text-align: center;
 }
 
-.section-container {
+.main-btn-container {
    align-items: center;
    display: flex;
    flex-direction: column;
@@ -257,7 +349,7 @@ li.box-list-text {
    text-align: center;
 }
 
-.section-btn {
+.main-btn {
    color: #ffffff;
    cursor: pointer;
    font-size: 16px;
@@ -270,31 +362,31 @@ li.box-list-text {
    width: 100%;
 }
 
-.section-btn-1 {
+.main-btn-1 {
    position: relative;
-   left: -30px;
-   background: #c7a9c5;
-   border: 1px solid #c7a9c5;
+   left: 0;
+   background: #7f5885;
+   border: 1px solid #7f5885;
    font-weight: 900;
    letter-spacing: 1px;
    transition: all 150ms linear;
 }
 
-.section-btn-2 {
+.main-btn-2 {
    position: relative;
-   left: -20px;
-   background: #c7a9c5;
-   border: 1px solid #c7a9c5;
+   left: 0;
+   background: #7f5885;
+   border: 1px solid #7f5885;
    font-weight: 900;
    letter-spacing: 1px;
    transition: all 150ms linear;
 }
 
-.section-btn-3 {
+.main-btn-3 {
    position: relative;
-   left: -10px;
-   background: #c7a9c5;
-   border: 1px solid #c7a9c5;
+   left: 0;
+   background: #7f5885;
+   border: 1px solid #7f5885;
    font-weight: 900;
    letter-spacing: 1px;
    transition: all 150ms linear;
@@ -302,26 +394,26 @@ li.box-list-text {
 
 /* 버튼 hover 효과 */
 
-.section-btn-1:hover {
+.main-btn-1:hover {
    text-decoration: none;
-   color: #ffffff; 
+   color: #000000; 
    background: rgb(199,169,197,.3);
    box-shadow: 1px 1px 2px rgba(255,255,255,.2);
    transition: all 250ms linear;
 }
 
 
-.section-btn-2:hover {
+.main-btn-2:hover {
    text-decoration: none;
-   color: #ffffff; 
+   color: #000000; 
    background: rgba(195,161,198,.3);
    box-shadow: 1px 1px 2px rgba(255,255,255,.2);
    transition: all 250ms linear;
 }
 
-.section-btn-3:hover {
+.main-btn-3:hover {
    text-decoration: none;
-   color: #ffffff; 
+   color: #000000; 
    background: rgba(195,161,198,.3);
    box-shadow: 1px 1px 2px rgba(255,255,255,.2);
    transition: all 250ms linear;
@@ -335,8 +427,221 @@ div.logo>
 }
 
 .copyright {
-   float: left;
-   padding-top: 30px;
+   padding-top: 10px;
    padding-left: 100px;
-   font-size: 12px;
+   font-size: 15px;
+   color: #6c757d;
+}
+
+.copyright-font {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000000;
+}
+
+/* 로그인 페이지 */
+
+.art-frame-panel {
+   background-color:#ddc;
+   border: solid 5vmin #eee;
+   border-bottom-color:#fff;
+   border-left-color:#eee;
+   border-radius: 2px;
+   border-right-color:#eee;
+   border-top-color:#ddd;
+   box-shadow: 0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
+   box-sizing: border-box;
+   display: inline-block;
+   margin-top: 30vh;
+   width: 20vw;
+   height: 50vh;
+   padding: 8vmin;
+   position: relative;
+   right: 20%;
+}
+
+.art-frame-panel:before {
+   border-radius: 2px;
+   bottom: -2vmin;
+   box-shadow: 0 2px 5px 0 rgba(0,0,0,.25) inset;
+   content: "";
+   left: -2vmin;
+   position: absolute;
+   right: -2vmin;
+   top: -2vmin;
+}
+
+.art-frame-panel:after {
+   border-radius: 2px;
+   bottom: -2.5vmin;
+   box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+   content:"";
+   left: -2.5vmin;
+   position: absolute;
+   right: -2.5vmin;
+   top: -2.5vmin;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+}
+
+.art-frame-area {
+    position: absolute;
+    top: 68%;
+    left: 120%;
+    width: 200px;
+    height: 120px;
+    border: 1px solid #fafafa;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.5);
+}
+
+.art-frame-text {
+    padding-top: 5px;
+    padding-left: 5px;
+    color: #d3d3d2;
+    font-size: 11px;
+    font-family: 'Noto Sans KR',sans-serif;
+    text-align: left; 
+}
+
+.art-frame-title {
+    padding-bottom: 10px;
+    color: #000000;
+    font-family: '배달의민족 한나체 Air 보통';   
+
+}
+
+.frame-description-line {
+   padding-bottom: 5px;
+   border-bottom: 1px solid #d3d3d2;
+}
+
+#login_description {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #66436b;
+    color: #000000;
+    font-size: 30px;
+}
+
+#login_contents {
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    border: 2px solid aqua;
+}
+
+.login-contents-area {
+    width: 500px;
+    height: 500px;
+    font-size: 12px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 30px;
+    border: 1px solid tomato;
+}
+
+.input-file-container {
+    position: relative;
+    margin-top: 20px;
+    left: 30%;
+    width: 225px;
+}
+
+.input-file-trigger {
+    display: block;
+    padding: 14px 45px;
+    color: #ffffff;
+    font-size: 15px;
+    background: #7f5885;
+    border: 1px solid #7f5885;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: all 150ms linear;
+}
+
+.input-file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 225px;
+    opacity: 0;
+    padding: 14px 0px;
+    cursor: pointer; 
+}
+
+.file-box-small {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #c3a1c7;
+    background: #c3a1c7;
+}
+
+.input-file-title {
+   font-size: 20px;
+   color: #000000;
+}
+
+.input-file:hover + .input-file-trigger,
+.input-file:focus + .input-file-trigger,
+.input-file-trigger:hover,
+.input-file-trigger:focus {
+   text-decoration: none;
+   color: #000000; 
+   background: rgb(199,169,197,.3);
+   box-shadow: 1px 1px 2px rgba(255,255,255,.2);
+   transition: all 250ms linear; 
+}
+
+.file-return {
+    margin: 0;
+}
+
+.file-return:not(:empty) {
+    margin: 1em 0;  
+}
+
+.file-return {
+    font-style: italic;
+    font-size: .9em;
+    font-weight: bold;
+    color: #000000;
+}
+
+.file-return:not(:empty):before {
+    content: "Selected file: ";
+    font-style: normal;
+    font-weight: normal;
+} 
+
+#map {
+   color: #000000;
+   font-size: 15px;
+}
+
+.input-description-area {
+    color: #000000;
+    font-size: 15px;
+}
+
+/* 구경하기 페이지 */
+
+#look_contents {
+   width: 100%;
+   height: 100%;
+   border: 1px solid #000000;
+   color: #000000;
+   font-size: 30px;
+}
+
+/* 공유하기 페이지 */
+#share_contents {
+   width: 1000px;
+   height: 600px;
+   border: 1px solid #000000;
+   color: #000000;
+   font-size: 30px;
+   margin: 0 auto;
 }
