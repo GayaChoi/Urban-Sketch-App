@@ -14,12 +14,24 @@ app.get('/login', function(req, res) {
     res.sendFile(path.join(__dirname, 'app/html', 'login.html'));
 });
 
-app.get('/look', function(req, res) {
-    res.sendFile(path.join(__dirname, 'app/html', 'look.html'));
+app.get('/gallery', function(req, res) {
+    res.sendFile(path.join(__dirname, 'app/html', 'gallery.html'));
 });
 
-app.get('/share', function(req, res) {
-    res.sendFile(path.join(__dirname, 'app/html', 'share.html'));
+app.get('/sale', function(req, res) {
+    res.sendFile(path.join(__dirname, 'app/html', 'sale.html'));
+});
+
+app.get('/saleInfo', function(req, res) {
+    res.sendFile(path.join(__dirname, 'app/html', 'saleInfo.html'));
+});
+
+app.get('/view', function(req, res) {
+    res.sendFile(path.join(__dirname, 'app/html', 'galleryView.html'));
+});
+
+app.get('/:pageId', function(req, res) {
+    res.sendFile(path.join(__dirname, 'app/html', '404.html'));
 });
 
 //ERROR Handling

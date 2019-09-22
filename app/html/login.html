@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
      <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> 
+    <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Muli|Nanum+Myeongjo|Noto+Sans|Noto+Sans+KR|Noto+Serif|Open+Sans+Condensed:300|Roboto|Roboto+Mono|Ubuntu|Work+Sans&display=swap" rel="stylesheet">
@@ -35,12 +36,12 @@
                         <span>자랑하기</span>
                         <span>|</span>
                     </a>
-                    <a href="/look">
+                    <a href="/gallery">
                         <span>구경하기</span>
                         <span>|</span>
                     </a>
-                    <a href="/share">
-                        <span>공유하기</span>
+                    <a href="/sale">
+                        <span>판매하기</span>
                    </a>
              </div>
         </div>
@@ -64,31 +65,41 @@
                </div>   
             </div> 
         </div>
-        <div id="login_description">
-             <p>contents 준비중입니다.</p> 
-        </div>
+        <div id="contents_img">
+            <img src="image/background_003.jpg" alt="">
+        </div> 
         <div id="login_contents">
             <div class="login-contents-area">
-                <form action="#" method="post" enctype="multipart/form-data"><!-- TODO: 서버 구축후 구현 할 것 -->
+                <form id="cantact" action="#" method="post" enctype="multipart/form-data"><!-- TODO: 서버 구축후 구현 할 것 -->
+                    <h1 class="login-contents-title">
+                            "여행중에 그린 그림을 자랑해보세요!<br>
+                             세상에 못그린 그림은 없습니다:)"
+                    </h1>
                     <div class="input-file-container">
-                        <label tabindex="0" for="name" class="input-file-title">
-                            그림을 올려주세요!
-                        </label>
+                        <p class="input-file-title">
+                            <i class="fas fa-check-circle"></i>그림을 올려주세요.
+                        </p>
                         <input class="input-file" id="my-file" type="file">
-                        <label tabindex="0" for="my-file" class="input-file-trigger">그림 올리기</label>
+                        <label tabindex="0" for="my-file" class="main-btn main-btn-1 input-file-trigger">그림올리기</label>
                     </div>
                     <p class="file-return"></p>
-                    <label tabindex="0" for="name" class="input-file-title">
-                           어디를 여행중이신가요?
-                    </label>
-                    <div id="map">
-                        <div>map 이 들어올 자리 입니다.</div>  
-                    </div>
-                    <div class="input-description-area">
-                        <label for="description" class="input-description">그림에 대해 설명해주세요!</label>
-                        <textarea name="description" id="input-description" cols="30" rows="10"></textarea> 
-                    </div>
+                    <fieldset>
+                        <p class="input-file-title">
+                            <i class="fas fa-check-circle"></i>다음과 같이 작성해주세요.
+                         </p>
+                         <input placeholder="현재 여행 중 인 곳은 어디신가요?"type="text" tabindex="1" required>
+                    </fieldset>
+                    <fieldset>
+                        <input placeholder="그림의 제목을 적어주세요." type="text" tabindex="2" required>
+                    </fieldset>
+                    <fieldset>
+                        <textarea placeholder="그림에 대해 설명해주세요." tabindex="5" required></textarea>
+                    </fieldset>
                     <div class="login-area">
+                        <p class="input-file-title">
+                            <i class="fas fa-check-circle"></i>
+                              로그인 버튼을 눌러주세요.
+                        </p>
                         <div class="buttons">
                             <div class="main-btn-container">
                                 <a class="main-btn main-btn-1" href="#">facebook login</a>
@@ -98,6 +109,9 @@
                 </form>
             </div>
         </div>
+        <div id="contents_img">
+            <img src="image/background_004.jpg" alt="">
+        </div>   
         <div id="footer">
             <div class="logo">
                 <a class="wrap-logo-box wrap-logo-title" href="/">
