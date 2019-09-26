@@ -1,0 +1,32 @@
+/* 판매하기 팝업창 */
+
+.saleInfo-contents {
+    width: 600px;
+    height: 800px;
+    padding-top: 50px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Noto Sans KR',sans-serif;
+    border: 1px solid #ffffff;
+    background: #ffffff;
+    color: #000000;
+}
+
+.saleInfo-contents .title {
+    font-size: 15px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #7f5885;
+}
+
+.saleInfo-context {
+    padding-top: 30px;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 60px;
+    color: #000000;
+}
+
+.fa-exclamation-circle {
+   font-size: 25px;
+}
+

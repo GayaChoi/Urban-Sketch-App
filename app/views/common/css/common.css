@@ -1,0 +1,300 @@
+/* 공통 부분 */
+@import 'reset.css';
+
+body {
+   background: #f6f7f8;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+
+/* 메인 페이지 */
+
+#wrap {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  color: #ffffff;
+  background: #f6f7f8;
+}
+
+/* header / logo */
+#header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100px;
+   line-height: 100px;
+   margin: 0 auto;
+   box-shadow: 0 4px 2px -2px rgba(0,0,0,.3);
+   background: #ffffff;
+   z-index: 333;
+}
+
+div.logo>a {
+    text-decoration: none;
+}
+ 
+div#header>a {
+    text-decoration: none;
+}
+
+/* logo contents */
+.logo {
+    width: 100px;
+    height: 0px;
+    line-height: 30px;
+    padding-top: 10px;
+    padding-left: 30px;
+    text-align: left; 
+}
+ 
+.wrap-logo-title {
+    color: #66436b;
+    font-size: 25px;
+    font-family: '배달의민족 연성';
+}
+ 
+.wrap-logo-box:hover {
+    color: #66436b;
+}
+ 
+.wrap-logo-text-1,
+.wrap-logo-text-2 {
+    display: inline-block;
+}
+ 
+/* navigation contents */
+#nav { 
+  padding:0;
+  padding-right: 50px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100px; 
+  line-height: 60px;
+  text-align: right;
+  z-index: 333;
+}
+
+
+#nav>a { 
+  margin: 0 auto;
+  padding: 0; 
+  font-weight: bold; 
+  font-size: 15px;
+  font-family: 'Noto Sans KR',sans-serif;
+  color: #bab6b2;
+  text-decoration: none;
+}
+
+
+#nav>a:hover {
+   color: rgba(0,0,0,.6);
+}
+
+
+/* 배너 디자인 */
+#banner {
+   width: 100%;
+   height: 600px;
+   margin: 0 auto;
+   padding: 0;
+   background: #f6f7f8;
+}
+
+/* banner 부분 */
+/* 자랑하기,구경하기,판매하기 공통 부분 */
+.banner-img {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-title {
+   position: fixed;
+   top: 20%;
+   left: 30px;
+   width: 150px;
+   height: 50px; 
+   color: #000000;
+   font-family: '배달의민족 한나는 열한살';
+   border: 1px solid #eeeeef;
+   background: #eeeeef;
+   box-shadow: 0px 1px 2px rgba(0,0,0,.5); 
+   z-index: 222;
+}
+
+/* contets_img */
+#contents_img img {
+    width: 100%;
+    height: 200px;
+    background: #ffffff;
+    font-size: 30px;  
+    font-family: 'Noto Sans KR',sans-serif;  
+    color: #000000;
+}
+ 
+/* footer */
+div#footer>a {
+   text-decoration: none;
+}
+
+#footer {
+   clear: both;
+   width: 100%;
+   height: 100px;
+   margin: 0 auto;
+   border-top: 2px solid #ececec; 
+   border-bottom: 5px solid #66436b;
+   background: #ffffff;
+   font-family: 'Noto Sans KR',sans-serif; 
+   color: #000000;
+}
+.copyright {
+   padding-top: 10px;
+   padding-left: 100px;
+   font-size: 15px;
+   color: #6c757d;
+}
+
+.copyright-font {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000000;
+}
+
+/* footer / logo 공통 */
+div#footer>
+div.logo>
+.wrap-logo-title {
+    font-size: 20px;
+    line-height: 10px;
+}
+
+/* 자랑하기,구경하기,판매하기 공통 */
+/* 배너에 그림을 넣어줌 */
+
+.art-frame-panel {
+    background-color:#ddc;
+    border: solid 5vmin #eee;
+    border-bottom-color:#fff;
+    border-left-color:#eee;
+    border-radius: 2px;
+    border-right-color:#eee;
+    border-top-color:#ddd;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
+    box-sizing: border-box;
+    display: inline-block;
+    margin-top: 30vh;
+    width: 20vw;
+    height: 50vh;
+    padding: 8vmin;
+    position: relative;
+    right: 20%;
+ }
+ 
+ .art-frame-panel:before {
+    border-radius: 2px;
+    bottom: -2vmin;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.25) inset;
+    content: "";
+    left: -2vmin;
+    position: absolute;
+    right: -2vmin;
+    top: -2vmin;
+ }
+ 
+ .art-frame-panel:after {
+    border-radius: 2px;
+    bottom: -2.5vmin;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+    content:"";
+    left: -2.5vmin;
+    position: absolute;
+    right: -2.5vmin;
+    top: -2.5vmin;
+ }
+ 
+ .art-frame-area {
+    position: absolute;
+    top: 68%;
+    left: 120%;
+    width: 200px;
+    height: 120px;
+    border: 1px solid #fafafa;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.5);
+ }
+ 
+ .art-frame-text {
+    padding-top: 5px;
+    padding-left: 5px;
+    color: #d3d3d2;
+    font-size: 11px;
+    font-family: 'Noto Sans KR',sans-serif;
+    text-align: left; 
+ }
+ 
+ .art-frame-title {
+    padding-bottom: 10px;
+    color: #000000;
+    font-family: '배달의민족 한나체 Air 보통';   
+ }
+ 
+ .frame-description-line {
+   padding-bottom: 5px;
+   border-bottom: 1px solid #d3d3d2;
+ }
+
+ /* 구경하기 / 판매하기 공통 */
+
+ /* masorny layout 부분 */
+
+#columns {
+   column-width: 200px;
+    column-gap: 15px;
+   width: 90%;
+    max-width: 1100px;
+   margin: 50px auto;
+}
+
+#columns figure {
+   background: #fefefe;
+    border: 2px solid #fcfcfc;
+    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+    margin: 0 2px 15px;
+    padding: 15px;
+    padding-bottom: 10px;
+    transition: opacity .4s ease-in-out;
+   display: inline-block;
+}
+
+div#columns figure img {
+   width: 100%; 
+   height: auto;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+}
+
+div#columns figure figcaption {
+   font-size: .8rem;
+   color: #444444;
+   line-height: 1.5;
+   font-family: 'Noto Sans KR',sans-serif;
+   text-align: left;
+}
+
+div#columns:hover figure:not(:hover) {
+    opacity: 0.4;
+}
+
+@media screen and (max-width: 750px) { 
+  #columns { column-gap: 0px; }
+  #columns figure { width: 100%; }
+}
+
+
+
+ 
+

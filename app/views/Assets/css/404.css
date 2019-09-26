@@ -1,0 +1,17 @@
+/* 404 페이지 */
+
+.notfound-page {
+    width: 100%;
+    height: 100%;
+    line-height: 15px;
+}
+
+.notfound-msg {
+    margin-top: 100px;
+    color: #66436b;
+    font-size: 30px;
+}
+
+.notfound-page .art-frame-panel {
+    margin-top: 100px;
+}

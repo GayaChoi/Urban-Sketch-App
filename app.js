@@ -1,38 +1,21 @@
 //server
 const express = require('express');
 const path = require('path');
-const url = require('url');
+const morgan = require('morgan');
 const app = express();
+const route = require('./app/router/route');
 
-app.use(express.static(path.join(__dirname, 'app/html')));
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/app/views');
+app.engine('html',require('ejs').renderFile);
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'app/html', 'index.html'));
-});
+app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, '/app')));
+app.use(express.static(path.join(__dirname, '/app/views')));
+app.use(express.static(path.join(__dirname, '/app/views/uploads')));
 
-app.get('/login', function(req, res) {
-    res.sendFile(path.join(__dirname, 'app/html', 'login.html'));
-});
-
-app.get('/gallery', function(req, res) {
-    res.sendFile(path.join(__dirname, 'app/html', 'gallery.html'));
-});
-
-app.get('/sale', function(req, res) {
-    res.sendFile(path.join(__dirname, 'app/html', 'sale.html'));
-});
-
-app.get('/saleInfo', function(req, res) {
-    res.sendFile(path.join(__dirname, 'app/html', 'saleInfo.html'));
-});
-
-app.get('/view', function(req, res) {
-    res.sendFile(path.join(__dirname, 'app/html', 'galleryView.html'));
-});
-
-app.get('/:pageId', function(req, res) {
-    res.sendFile(path.join(__dirname, 'app/html', '404.html'));
-});
+// 메인 페이지
+app.use('/', route);
 
 //ERROR Handling
 app.use(function(req, res, next) {

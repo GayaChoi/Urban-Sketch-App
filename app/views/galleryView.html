@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="common/css/common.css">
+    <link rel="stylesheet" href="Assets/css/view.css">
      <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> 
      <!-- bootstrap -->
@@ -32,7 +33,7 @@
                     <span>홈</span>
                     <span>|</span> 
                 </a>
-                <a href="/login">
+                <a href="/add">
                     <span>자랑하기</span>
                     <span>|</span>
                 </a>
@@ -50,7 +51,7 @@
                     <h1>구경하기</h1>
                 </div>    
                 <div class="art-frame-panel">
-                    <img class="banner-img" src="image/최우성_반고흐.jpg">
+                    <img class="banner-img" src="Assets/image/최우성_반고흐.jpg">
                 <div class="art-frame-area">
                 <ul class="art-frame-text">
                     <li class="art-frame-title">제목: 반고흐 자화상</li>
@@ -61,29 +62,28 @@
                     <li class="art-frame-description">
                         마카를 사용한 반고흐 의 자화상.자연에 응용하여 그렸음.
                     </li> 
-                    </ul>
+                </ul>
                 </div>   
             </div> 
         </div>
         <div id="contents_img">
-            <img src="image/background_009.jpg" alt="">
+            <img src="Assets/image/background_009.jpg" alt="">
         </div>
         <div id="gallery_contents">
             <div class="gallery-container">
-               <img src="image/최우성_집.jpg"></img>
-               <div class="gallery-description-area">
-                   <!-- TODO: 서버쪽에 넘어오는 값을 보고 값의 크기에 따라 디자인 수정 할 것 --> 
+               <img src=<%=path%>>
+               <div class="gallery-description-area"> 
                    <ul>
-                     <li class="gallery-title">제목:</li>
-                     <li class="gallery-place">위치:</li>
-                     <li class="gallery-description">설명:</li>
-                     <li class="gallery-author">작성자:</li>
+                     <li class="gallery-title">제목: <%=title%></li>
+                     <li class="gallery-place">위치: <%=loc%></li>
+                     <li class="gallery-description">설명: <%=des%></li>
+                     <li class="gallery-author">작성자: <%=author%></li>
                    </ul>
                </div>
             </div>
         </div>    
         <div id="contents_img">
-            <img src="image/background_010.jpg" alt="">
+            <img src="Assets/image/background_010.jpg" alt="">
         </div>  
         <div id="footer">
             <div class="logo">
@@ -99,5 +99,5 @@
         </div>
     </div>
 </body>
-<script src="app.js"></script>
+<script src="common/js/common.js"></script>
 </html>

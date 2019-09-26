@@ -1,0 +1,221 @@
+/* 자랑하기(로그인) 페이지 */
+
+/* contents 부분 */
+#login_contents {
+    width: 100%;
+    height: 1000px;
+    margin: 0 auto;
+    background: #f6f6f6;
+}
+
+.login-contents-area {
+    width: 600px;
+    height: 100%;
+    font-size: 12px;
+    margin: 0 auto;
+    padding-top: 50px;
+    border: 1px solid #ffffff;
+    background: #ffffff;
+}
+
+.login-contents-title {
+    margin-top: 50px;
+    font-size: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+    line-height: 35px;
+    color: #000000; 
+}
+
+/* form 부분 */
+/* 이미지 업로드 관련 부분 */
+.input-file-container {
+    position: relative;
+    margin-top: 20px;
+    left: 30%;
+    width: 225px;
+}
+
+.input-file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 225px;
+    opacity: 0;
+    padding: 14px 0px;
+}
+
+.input-description-title {
+    font-size: 20px;
+    color: #000000;
+}
+
+.input-file-title {
+   padding-top: 50px;
+   font-size: 20px;
+   color: #926a98;
+}
+
+.fa-check-circle {
+   font-size: 20px;
+}
+
+.input-file:hover + .input-file-trigger,
+.input-file:focus + .input-file-trigger,
+.input-file-trigger:hover,
+.input-file-trigger:focus {
+   text-decoration: none;
+   color: #000000; 
+   background: rgb(199,169,197,.3);
+   box-shadow: 1px 1px 2px rgba(255,255,255,.2);
+   transition: all 250ms linear; 
+   
+}
+
+.file-return {
+    margin: 0;
+}
+
+.file-return:not(:empty) {
+    margin: 1em 0;  
+}
+
+.file-return {
+    font-style: italic;
+    font-size: .2em;
+    font-weight: bold;
+    color: #000000;
+}
+
+.file-return:not(:empty):before {
+    content: "Selected file: ";
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* 로그인 폼 관련 */
+#contact {
+    background: #f9f9f9;
+    padding: 25px;
+    margin: 50px 0;
+}
+
+fieldset {
+    border: medium none;
+     margin: 0 0 10px;
+     min-width: 100%;
+     padding: 0;
+     width: 100%;
+}
+ 
+fieldset input[type="text"],
+fieldset input[type="file"],
+fieldset textarea {
+     font: 400 12px/16px 'Noto Sans KR',sans-serif;
+}
+
+
+fieldset input[type="text"],
+fieldset input[type="file"], 
+fieldset textarea {
+	width: 300px;
+	border: 1px solid #cccccc;
+	background:#ffffff;
+	margin: 0 0 5px;
+	padding: 10px;
+}
+
+fieldset input[type="text"]:hover, 
+fieldset input[type="file"]:hover,
+fieldset textarea:hover {
+	-webkit-transition: border-color 0.3s ease-in-out;
+	-moz-transition: border-color 0.3s ease-in-out;
+	transition: border-color 0.3s ease-in-out;
+	border: 1px solid #aaaaaa;
+}
+
+fieldset textarea {
+	height: 100px;
+	max-width: 300px;
+   resize: none;
+}
+
+
+/* 버튼 부분(홈 부분과 동일<index.html>) */
+
+.main-btn-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+ }
+ 
+ .main-btn {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Noto Sans KR',sans-serif; 
+    line-height: 45px;
+    margin: 0 0 2em;
+    max-width: 160px;
+    text-decoration: none;
+    width: 100%;
+ }
+ 
+ .main-btn-1 {
+    position: relative;
+    left: 0;
+    background: #7f5885;
+    border: 1px solid #7f5885;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: all 150ms linear;
+ }
+ 
+ .main-btn-2 {
+    position: relative;
+    left: 0;
+    background: #7f5885;
+    border: 1px solid #7f5885;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: all 150ms linear;
+ }
+ 
+ .main-btn-3 {
+    position: relative;
+    left: 0;
+    background: #7f5885;
+    border: 1px solid #7f5885;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: all 150ms linear;
+ }
+ 
+ /* 버튼 hover 효과 */
+ 
+ .main-btn-1:hover {
+    text-decoration: none;
+    color: #000000; 
+    background: rgb(199,169,197,.3);
+    box-shadow: 1px 1px 2px rgba(255,255,255,.2);
+    transition: all 250ms linear;
+ }
+ 
+ 
+ .main-btn-2:hover {
+    text-decoration: none;
+    color: #000000; 
+    background: rgba(195,161,198,.3);
+    box-shadow: 1px 1px 2px rgba(255,255,255,.2);
+    transition: all 250ms linear;
+ }
+ 
+ .main-btn-3:hover {
+    text-decoration: none;
+    color: #000000; 
+    background: rgba(195,161,198,.3);
+    box-shadow: 1px 1px 2px rgba(255,255,255,.2);
+    transition: all 250ms linear;
+ }

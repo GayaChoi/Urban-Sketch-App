@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="common/css/common.css">
+    <link rel="stylesheet" href="Assets/css/add.css">
      <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> 
     <!-- bootstrap -->
@@ -32,7 +33,7 @@
                         <span>홈</span>
                         <span>|</span> 
                     </a>
-                    <a href="/login#">
+                    <a href="/add#">
                         <span>자랑하기</span>
                         <span>|</span>
                     </a>
@@ -50,7 +51,7 @@
                 <h1>자랑하기</h1>
             </div>    
             <div class="art-frame-panel">
-               <img class="banner-img" src="image/최우성_천불.jpg">
+               <img class="banner-img" src="Assets/image/최우성_천불.jpg">
                <div class="art-frame-area">
                    <ul class="art-frame-text">
                        <li class="art-frame-title">제목: 천불(千佛)</li>
@@ -66,34 +67,37 @@
             </div> 
         </div>
         <div id="contents_img">
-            <img src="image/background_003.jpg" alt="">
+            <img src="Assets/image/background_003.jpg" alt="">
         </div> 
         <div id="login_contents">
             <div class="login-contents-area">
-                <form id="cantact" action="#" method="post" enctype="multipart/form-data"><!-- TODO: 서버 구축후 구현 할 것 -->
+                <form id="cantact" action="/uploads" method="post" enctype="multipart/form-data"><!-- TODO: 서버 구축후 구현 할 것 -->
                     <h1 class="login-contents-title">
-                            "여행중에 그린 그림을 자랑해보세요!<br>
-                             세상에 못그린 그림은 없습니다:)"
+                        "여행중에 그린 그림을 자랑해보세요!<br>
+                         세상에 못그린 그림은 없습니다:)"
                     </h1>
                     <div class="input-file-container">
-                        <p class="input-file-title">
-                            <i class="fas fa-check-circle"></i>그림을 올려주세요.
-                        </p>
-                        <input class="input-file" id="my-file" type="file">
-                        <label tabindex="0" for="my-file" class="main-btn main-btn-1 input-file-trigger">그림올리기</label>
+                          <p class="input-file-title">
+                              <i class="fas fa-check-circle"></i>그림을 올려주세요.
+                          </p>
+                          <input name="img" class="input-file" id="my-file" type="file">
+                          <label tabindex="0" for="my-file" class="main-btn main-btn-1 input-file-trigger">그림올리기</label>
                     </div>
                     <p class="file-return"></p>
                     <fieldset>
-                        <p class="input-file-title">
-                            <i class="fas fa-check-circle"></i>다음과 같이 작성해주세요.
-                         </p>
-                         <input placeholder="현재 여행 중 인 곳은 어디신가요?"type="text" tabindex="1" required>
+                            <p class="input-file-title">
+                                <i class="fas fa-check-circle"></i>다음과 같이 작성해주세요.
+                            </p>
+                            <input placeholder="현재 여행 중 인 곳은 어디신가요?" name="location" type="text" tabindex="1" required>
                     </fieldset>
                     <fieldset>
-                        <input placeholder="그림의 제목을 적어주세요." type="text" tabindex="2" required>
+                            <input placeholder="그림의 제목을 적어주세요." name="title" type="text" tabindex="2" required>
                     </fieldset>
                     <fieldset>
-                        <textarea placeholder="그림에 대해 설명해주세요." tabindex="5" required></textarea>
+                            <input placeholder="이름 을 적어주세요." name="author" type="text" tabindex="2" required>
+                    </fieldset>
+                    <fieldset>
+                            <textarea placeholder="그림에 대해 설명해주세요." name="description" tabindex="5" required></textarea>
                     </fieldset>
                     <div class="login-area">
                         <p class="input-file-title">
@@ -102,7 +106,7 @@
                         </p>
                         <div class="buttons">
                             <div class="main-btn-container">
-                                <a class="main-btn main-btn-1" href="#">facebook login</a>
+                                <input value="facebook login" name="submit" type="submit" class="main-btn main-btn-1"></input>
                             </div>
                         </div>
                     </div>
@@ -110,7 +114,7 @@
             </div>
         </div>
         <div id="contents_img">
-            <img src="image/background_004.jpg" alt="">
+            <img src="Assets/image/background_004.jpg" alt="">
         </div>   
         <div id="footer">
             <div class="logo">
@@ -126,6 +130,6 @@
         </div>
     </div>
 </body>
-<script src="app.js"></script>
-<script src="upload.js"></script>
+<script src="common/js/common.js"></script>
+<script src="js/upload.js"></script>
 </html>
