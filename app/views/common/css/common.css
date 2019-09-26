@@ -251,11 +251,11 @@ div.logo>
  /* masorny layout 부분 */
 
 #columns {
-   column-width: 200px;
+    column-width: 200px;
     column-gap: 15px;
-   width: 90%;
+    width: 90%;
     max-width: 1100px;
-   margin: 50px auto;
+    margin: 50px auto;
 }
 
 #columns figure {

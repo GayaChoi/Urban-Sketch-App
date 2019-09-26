@@ -34,13 +34,18 @@ router.get('/add', function(req, res) {
 
 // 구경하기 페이지
 router.get('/gallery', function(req, res) {
-    res.render('gallery.html');
-});
 
+    res.render('gallery.html',{
+        title: imgApp.title,
+        path: imgApp.src,
+        loc: imgApp.location,
+        author: imgApp.author,
+        des: imgApp.description
+    });
+});
 
 // 구경하기 링크 페이지
 router.get('/view', function(req, res) {
-    console.log(imgApp.src);
     res.render('galleryView.html',{
           title: imgApp.title,
           path: imgApp.src,
@@ -59,16 +64,14 @@ router.get('/sale', function(req, res) {
 router.post('/uploads', upload.single('img'), function(req, res) {
     
     imgApp = {
-       'src': req.file.destination + req.file.filename,
+       'src': req.file.filename,
        'title': req.body.title,
        'location': req.body.location,
        'author': req.body.author,
        'description': req.body.description    
     };
 
-    console.log(req.file.destination + req.file.filename);
-    
-    res.send(`<img src=${imgApp.src} style="width: 400px;height: 400px;">`);
+    res.redirect('/view');
 });
 
 // 판매하기 팝업
