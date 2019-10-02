@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Muli|Nanum+Myeongjo|Noto+Sans|Noto+Sans+KR|Noto+Serif|Open+Sans+Condensed:300|Roboto|Roboto+Mono|Ubuntu|Work+Sans&display=swap" rel="stylesheet">
+    <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -71,11 +72,16 @@
         </div>
         <div id="gallery_contents">
             <div id="columns">
-                <figure class="columns-img">
-                    <a>
-                       <img src=<%=path%> alt="">
-                    </a>
-                </figure>
+               <figure class="columns-img"></figure>
+               <figure class="columns-img"></figure>
+               <figure class="columns-img"></figure>
+               <figure class="columns-img"></figure>
+               <figure class="columns-img"></figure>
+               <figure class="columns-img"></figure>
+               <figure class="columns-img"></figure>
+               <figure class="columns-img"></figure>
+               <figure class="columns-img"></figure>
+               <figure class="columns-img"></figure>   
             </div>   
         </div>    
         <div id="contents_img">
@@ -96,4 +102,8 @@
     </div>
 </body>
 <script src="common/js/common.js"></script>
+<!-- 이미지 렌더링 권한 부여 -->
+<% if (user && path) { %>
+    <%- include('addImage'); -%>
+<% } %>       
 </html>

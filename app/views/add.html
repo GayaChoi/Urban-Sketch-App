@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Muli|Nanum+Myeongjo|Noto+Sans|Noto+Sans+KR|Noto+Serif|Open+Sans+Condensed:300|Roboto|Roboto+Mono|Ubuntu|Work+Sans&display=swap" rel="stylesheet">
+    <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -70,35 +71,13 @@
             <img src="Assets/image/background_003.jpg" alt="">
         </div> 
         <div id="login_contents">
-            <div class="login-contents-area">
-                <form id="cantact" action="/uploads" method="post" enctype="multipart/form-data"><!-- TODO: 서버 구축후 구현 할 것 -->
-                    <h1 class="login-contents-title">
-                        "여행중에 그린 그림을 자랑해보세요!<br>
-                         세상에 못그린 그림은 없습니다:)"
-                    </h1>
-                    <div class="input-file-container">
-                          <p class="input-file-title">
-                              <i class="fas fa-check-circle"></i>그림을 올려주세요.
-                          </p>
-                          <input name="img" class="input-file" id="my-file" type="file">
-                          <label tabindex="0" for="my-file" class="main-btn main-btn-1 input-file-trigger">그림올리기</label>
-                    </div>
-                    <p class="file-return"></p>
-                    <fieldset>
-                            <p class="input-file-title">
-                                <i class="fas fa-check-circle"></i>다음과 같이 작성해주세요.
-                            </p>
-                            <input placeholder="현재 여행 중 인 곳은 어디신가요?" name="location" type="text" tabindex="1" required>
-                    </fieldset>
-                    <fieldset>
-                            <input placeholder="그림의 제목을 적어주세요." name="title" type="text" tabindex="2" required>
-                    </fieldset>
-                    <fieldset>
-                            <input placeholder="이름 을 적어주세요." name="author" type="text" tabindex="2" required>
-                    </fieldset>
-                    <fieldset>
-                            <textarea placeholder="그림에 대해 설명해주세요." name="description" tabindex="5" required></textarea>
-                    </fieldset>
+            <div class="login-contents-area">   
+                <% if (!user) { %>
+                    <form id="cantact" action="/fb/login" method="get" enctype="multipart/form-data">
+                            <h1 class="login-contents-title">
+                                "여행중에 그린 그림을 자랑해보세요!<br>
+                                 세상에 못그린 그림은 없습니다:)"
+                            </h1>   
                     <div class="login-area">
                         <p class="input-file-title">
                             <i class="fas fa-check-circle"></i>
@@ -111,6 +90,75 @@
                         </div>
                     </div>
                 </form>
+                <% } else { %>
+                <form id="cantact" action="/uploads" method="post" enctype="multipart/form-data">
+                    <h1 class="login-contents-title">
+                        "여행중에 그린 그림을 자랑해보세요!<br>
+                         세상에 못그린 그림은 없습니다:)"
+                    </h1>
+                    <div class="input-file-container">
+                        <p class="input-file-title">
+                            <i class="fas fa-check-circle"></i>그림을 올려주세요.
+                        </p>
+                        <input name="img" class="input-file" id="my-file" type="file">
+                        <label tabindex="0" for="my-file" class="main-btn main-btn-1 input-file-trigger">그림올리기</label>
+                    </div>
+                    <p class="file-return"></p>
+                        <fieldset>
+                           <p class="input-file-title">
+                               <i class="fas fa-check-circle"></i>다음과 같이 작성해주세요.
+                           </p>
+                        <input placeholder="현재 여행 중 인 곳은 어디신가요?" name="location" type="text" tabindex="1" required>
+                        </fieldset>
+                        <fieldset>
+                              <input placeholder="그림의 제목을 적어주세요." name="title" type="text" tabindex="2" required>
+                        </fieldset>
+                        <fieldset>
+                              <input placeholder="이름 을 적어주세요." name="author" type="text" tabindex="2" required>
+                        </fieldset>
+                        <fieldset>
+                              <textarea placeholder="그림에 대해 설명해주세요." name="description" tabindex="5" required></textarea>
+                        </fieldset>
+                        <div class="login-area">
+                            <p class="input-file-title">
+                                <i class="fas fa-check-circle"></i>
+                                자랑하기 버튼을 눌러주세요.
+                            </p>
+                            <div class="buttons">
+                                <div class="main-btn-container">
+                                    <input value="자랑하기!" name="submit" type="submit" class="main-btn main-btn-1"></input>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <script>
+                            /* 이미지 업로드 관련 */
+                            const js = document.querySelector('html').classList.add('js');
+         
+                            var fileInput = document.querySelector('.input-file'),    
+                                button = document.querySelector('.input-file-trigger'),
+                                the_return = document.querySelector('.file-return');
+                              
+                             console.log(button);                
+                             // 키보드 이벤트가 눌렸을 때 발생
+                             button.addEventListener('keydown', function(event) {
+                                 if (event.keyCode === 13 || event.keyCode === 32) {
+                                     fileInput.focus();
+                                 }
+                             });
+                             
+                             // 마우스 이벤트가 눌렸을 때 발생
+                             button.addEventListener('click', function(event) {
+                                 fileInput.focus();
+                             });
+                             
+                             // 변경 이벤트
+                             // 버튼을 누를때 마다 파일 이 변경됨
+                             fileInput.addEventListener('change', function(event) {  
+                                 the_return.innerHTML = this.value;  
+                             });         
+                         </script>
+                <% } %>  
             </div>
         </div>
         <div id="contents_img">
@@ -131,5 +179,4 @@
     </div>
 </body>
 <script src="common/js/common.js"></script>
-<script src="js/upload.js"></script>
 </html>

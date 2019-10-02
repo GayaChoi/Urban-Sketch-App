@@ -4,52 +4,38 @@ const path = require('path');
 const morgan = require('morgan');
 const app = express();
 const route = require('./app/router/route');
-
+const passport = require('passport');
+const passportConfig = require('./app/lib/passport');
+const session = require('express-session');
+// ejs 설정
+app.locals.pretty = true;
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/app/views');
+// 브라우저 와 연동
 app.engine('html',require('ejs').renderFile);
 
+// 로그 읽어줌
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, '/app')));
+// 경로 설정
 app.use(express.static(path.join(__dirname, '/app/views')));
 app.use(express.static(path.join(__dirname, '/app/views/uploads')));
+app.use(session({ 
+    secret: 'keyboard cat', 
+    resave: true, 
+    saveUninitialized: true
+}));
+  
+// 쿠키를 사용 할 수 있게 함
+app.use(require('cookie-parser')());
+// 반드시 passport 는 session 위에서 동작함
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport 관련 모듈
+passportConfig();
 
 // 메인 페이지
 app.use('/', route);
 
-//ERROR Handling
-app.use(function(req, res, next) {
-    const error = new Error('Page Not Found');
-    error.status(404);
-    res.send('404 Page Not Found');
-    next(error);
-});
-
-app.use(function(req, res, next) {
-    const error = new Error('method Allowed');
-    error.status(405);
-    res.send('405 method Allowed');
-    next(error);
-});
-
-app.use(function(req, res, next) {
-    const error = new Error('Service Unavailable');
-    error.status(503);
-    res.send('503 Service Unavailable');
-    next(error);
-});
-
-app.use(function(req, res, next) {
-   const error = new Error('Unauthorized');
-   error.status(401);
-   res.send('401 Unauthorized');
-   next(error);
-});
-
-app.use(function(error, req, res, next) {
-   res.status(error.status || 500);    
-
-   res.send('500 Internal Server Error');
-});
 
 module.exports = app;

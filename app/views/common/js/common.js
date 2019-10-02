@@ -1,11 +1,8 @@
 /* 각 페이지 메인 을 설정 하는 기능 */
 
 const banner = $('#banner'); 
-      left = $('#side_left');
-      contents = $('#contents');
-      right = $('#side_right');
-      nav = $('#nav a span');  
-
+      nav = $('#nav a span'); 
+       
 
 /* 링크 제어 */
 
@@ -20,9 +17,7 @@ if (window.location.pathname === '/' || window.location.pathname === '/index.htm
 } else if (window.location.pathname === '/sale') { // 사용자가 판매하기 페이지 에 접근할 경우
     nav.eq(6).css('color','#000000');
     banner.css('height','750px');
-} else {
+} else { // 그 외 의 페이지 에 접근 할 경우
     nav.eq(4).css('color','#000000');
     banner.css('height','750px');
 }
-
-

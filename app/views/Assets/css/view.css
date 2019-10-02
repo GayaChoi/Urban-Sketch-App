@@ -1,5 +1,4 @@
 /* 자랑하기 링크 페이지 */
-/* 템플릿 에 연동할 것 */
 
 .gallery-container {
     width: 100%;
@@ -11,12 +10,14 @@
     top: 80px;
     right: 250px;
     width: 400px;
-    height: 400px;
+    height: 600px;
  }
  
  .gallery-description-area {
-    font-size: 15px;
+    font-size: 12px;
     color: #000000;
  }
  
- 
+ .gallery-word {
+    text-align: right;
+ } 

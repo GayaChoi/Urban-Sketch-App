@@ -1,0 +1,72 @@
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+<script>
+   const columns = $("div#columns");
+         figure = $("figure.columns-img");
+
+   // 서버에 넘어온 각 요소 값들을 storage 에 저장
+   let obj = {};    
+   let tag;
+
+    // 새로 고침 할 시 수행되는 이벤트
+    window.onbeforeunload = function() { 
+         init();
+    }
+
+    function print(index) {
+        figure
+        .eq(index)
+        .css("visibility","visible")
+        .html(window.localStorage.getItem(`tag[${index}]`));
+    }
+
+    function save(index) {
+        // 서버에서 전달받은 데이터 를 storage 에 저장
+        window.localStorage.setItem(`title[${index}]`,`<%=title%>`);
+        window.localStorage.setItem(`path[${index}]`,`<%=path%>`);
+        window.localStorage.setItem(`loc[${index}]`,`<%=loc%>`);
+        window.localStorage.setItem(`author[${index}]`,`<%=author%>`);
+        window.localStorage.setItem(`num[${index}]`,`<%=num%>`);
+
+              
+        obj.title = window.localStorage.getItem(`title[${index}]`);
+        obj.path = window.localStorage.getItem(`path[${index}]`);
+        obj.loc = window.localStorage.getItem(`loc[${index}]`);
+        obj.author = window.localStorage.getItem(`author[${index}]`);
+        
+        // ★ 서버에 변경된 데이터 값 이 실시간 으로 전송 되어 변경 되기 때문에 storage 에 저장 된 값을 불러와서 씀
+        tag = 
+             `<a href='/gallery#'>
+                  <img src=${obj.path} alt="">
+              </a>
+              <figcaption>
+                  <ul>
+                    <li>제목:${obj.title}</li>
+                    <li>그린사람:${obj.author}</li>
+                    <li>여행중인곳:${obj.loc}</li> 
+                  </ul>
+              </figcaption>`;
+      
+        window.localStorage.setItem(`tag[${index}]`,tag);
+    }
+
+    function init() {
+       for (let i = 0;i <= (`<%=num%>` - 1);i++) {
+          if (window.localStorage.getItem(`tag[${i}]`) !== null) {
+              print(i);       
+          } else {
+              if (i < `<%=num%>` - 1) {
+                 figure
+                 .eq(i)  
+                 .css("visibility","hidden")
+                 .html("");   
+              } else {
+                 save(i);
+                 print(i); 
+              }
+          }     
+       }             
+    }    
+     
+    init();
+</script>
