@@ -1,72 +1,62 @@
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
 <script>
-   const columns = $("div#columns");
-         figure = $("figure.columns-img");
+   const figure = $("figure.columns-img");
 
    // 서버에 넘어온 각 요소 값들을 storage 에 저장
-   let obj = {};    
    let tag;
+   let voidArr = [];
+   let length = figure.length;
 
     // 새로 고침 할 시 수행되는 이벤트
     window.onbeforeunload = function() { 
          init();
     }
 
-    function print(index) {
+    function print(tagIndex,stoIndex) {
         figure
-        .eq(index)
+        .eq(tagIndex)
         .css("visibility","visible")
-        .html(window.localStorage.getItem(`tag[${index}]`));
+        .html(window.localStorage.getItem(`tag[${stoIndex}]`));
     }
 
-    function save(index) {
-        // 서버에서 전달받은 데이터 를 storage 에 저장
-        window.localStorage.setItem(`title[${index}]`,`<%=title%>`);
-        window.localStorage.setItem(`path[${index}]`,`<%=path%>`);
-        window.localStorage.setItem(`loc[${index}]`,`<%=loc%>`);
-        window.localStorage.setItem(`author[${index}]`,`<%=author%>`);
-        window.localStorage.setItem(`num[${index}]`,`<%=num%>`);
-
-              
-        obj.title = window.localStorage.getItem(`title[${index}]`);
-        obj.path = window.localStorage.getItem(`path[${index}]`);
-        obj.loc = window.localStorage.getItem(`loc[${index}]`);
-        obj.author = window.localStorage.getItem(`author[${index}]`);
-        
-        // ★ 서버에 변경된 데이터 값 이 실시간 으로 전송 되어 변경 되기 때문에 storage 에 저장 된 값을 불러와서 씀
+    function save(stoIndex) {
         tag = 
-             `<a href='/gallery#'>
-                  <img src=${obj.path} alt="">
-              </a>
-              <figcaption>
-                  <ul>
-                    <li>제목:${obj.title}</li>
-                    <li>그린사람:${obj.author}</li>
-                    <li>여행중인곳:${obj.loc}</li> 
-                  </ul>
-              </figcaption>`;
-      
-        window.localStorage.setItem(`tag[${index}]`,tag);
+            `<a href='/gallery#'>
+                <img src='<%=path%>' alt="">
+            </a>
+            <figcaption>
+                <ul>
+                  <li>제목:<%=title%></li>
+                  <li>그린사람:<%=author%></li>
+                  <li>여행중인곳:<%=loc%></li> 
+                </ul>
+            </figcaption>`;    
+    
+        // 서버에서 전달받은 데이터 를 storage 에 저장 
+        window.localStorage.setItem(`tag[${stoIndex}]`,tag);
     }
 
-    function init() {
-       for (let i = 0;i <= (`<%=num%>` - 1);i++) {
-          if (window.localStorage.getItem(`tag[${i}]`) !== null) {
-              print(i);       
-          } else {
-              if (i < `<%=num%>` - 1) {
-                 figure
-                 .eq(i)  
-                 .css("visibility","hidden")
-                 .html("");   
-              } else {
-                 save(i);
-                 print(i); 
-              }
-          }     
-       }             
+    function init() { 
+        // 이전의 데이터 렌더링
+        for (let tagIndex = 0,stoIndex = 0;tagIndex < length;tagIndex++,stoIndex++) { 
+            if (window.localStorage.getItem(`tag[${stoIndex}]`) !== null) {
+               print(tagIndex,stoIndex);
+            } else {
+              if (`<%=path%>` !== "") { // 이미지 가 존재하는 경우
+                voidArr.push({
+                     tag: tagIndex, 
+                     sto: stoIndex    
+                });
+               
+                save(voidArr[0].sto);
+                print(voidArr[0].tag,voidArr[0].sto);
+              } 
+            }
+        }
     }    
-     
+
     init();
+
 </script>

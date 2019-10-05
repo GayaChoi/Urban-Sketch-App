@@ -1,12 +1,13 @@
 //server
-const express = require('express');
-const path = require('path');
-const morgan = require('morgan');
-const app = express();
+var express = require('express');
+var path = require('path');
+var morgan = require('morgan');
+var app = express();
+var session = require('express-session');
 const route = require('./app/router/route');
 const passport = require('passport');
 const passportConfig = require('./app/lib/passport');
-const session = require('express-session');
+
 // ejs 설정
 app.locals.pretty = true;
 app.set('view engine', 'ejs');
