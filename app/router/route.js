@@ -42,10 +42,8 @@ router.get('/auth/facebook', passport.authenticate('facebook'));
 
 router.get('/auth/facebook/callback', 
   // 로그인 실패 할 시 오류 페이지로 돌아가기
-  passport.authenticate('facebook', { failureRedirect: '/'}),
-  function(req, res) {
-      res.redirect('/add');
-});
+  passport.authenticate('facebook', { successRedirect: '/add',
+  failureRedirect: '/' }));
 
 // 구경하기 페이지
 router.get('/gallery',
