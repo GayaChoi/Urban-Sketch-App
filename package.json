@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "직접그린 어반스케치를 사람들과 공유하는 프로젝트 입니다.",
   "engines": {
-    "node": "10.3.0"
+    "node": "10.3.0",
+    "npm": "6.9.0"
   },
   "main": "index.js",
   "scripts": {
