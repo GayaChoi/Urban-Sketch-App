@@ -55,7 +55,25 @@
         </div>
         <div id="login_contents">
             <div class="login-contents-area">   
-                <% if (user !== undefined) { %>
+                <% if (!user) { %>
+                        <form id="cantact" action="/auth/facebook" method="get" enctype="multipart/form-data">
+                            <h1 class="login-contents-title">
+                                "여행중에 그린 그림을 자랑해보세요!<br>
+                                세상에 못그린 그림은 없습니다:)"
+                            </h1>   
+                    <div class="login-area">
+                        <p class="input-file-title">
+                            <i class="fas fa-check-circle"></i>
+                            로그인 버튼을 눌러주세요.
+                        </p>
+                        <div class="buttons">
+                            <div class="main-btn-container">
+                                <input value="facebook login" name="submit" type="submit" class="main-btn main-btn-1"></input>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <% } else { %>
                     <form id="cantact" action="/uploads" method="post" enctype="multipart/form-data">
                         <h1 class="login-contents-title">
                             "여행중에 그린 그림을 자랑해보세요!<br>
@@ -92,25 +110,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                <% } else { %>
-                            <form id="cantact" action="/auth/facebook" method="get" enctype="multipart/form-data">
-                                <h1 class="login-contents-title">
-                                    "여행중에 그린 그림을 자랑해보세요!<br>
-                                    세상에 못그린 그림은 없습니다:)"
-                                </h1>   
-                        <div class="login-area">
-                            <p class="input-file-title">
-                                <i class="fas fa-check-circle"></i>
-                                로그인 버튼을 눌러주세요.
-                            </p>
-                            <div class="buttons">
-                                <div class="main-btn-container">
-                                    <input value="facebook login" name="submit" type="submit" class="main-btn main-btn-1"></input>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                        </form>      
                     <script>
                         /* 이미지 업로드 관련 */
                         const js = document.querySelector('html').classList.add('js');

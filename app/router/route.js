@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var passport = require('passport');
 var compression = require('compression');
+var FacebookStrategy = require('passport-facebook').Strategy;
 var app = express();
 var router = express.Router();
 const bodyParser = require('body-parser');
@@ -20,10 +21,29 @@ const upload = multer({
 });
 
 var imgApp = {}; // form 에서 넘겨받은 데이터를 저장하는 객체
+require('dotenv').config({path: __dirname + '/.env'});
 // POST 메소드 값 추출
 bodyParser.urlencoded({ extended: false });
 app.use(bodyParser.json());
 app.use(compression());
+
+
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL: 'https://urban-sketch.herokuapp.com/auth/facebook/callback' 
+}, 
+function(accessToken, refreshToken, profile, cb) {
+      return cb(null, profile);
+}));
+
+passport.serializeUser(function(user, cb) {
+     cb(null, user);
+});
+
+passport.deserializeUser(function(obj, cb) {
+     cb(null, obj);
+}); 
 
 // 메인 페이지
 router.get('/', function(req, res, next) {
@@ -41,10 +61,10 @@ router.get('/auth/facebook', passport.authenticate('facebook'));
 
 router.get('/auth/facebook/callback', 
   // 로그인 실패 할 시 오류 페이지로 돌아가기
-  passport.authenticate('facebook', { successRedirect: '/',
-  failureRedirect: '/add' }));
-
-
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
 
 // 구경하기 페이지
 router.get('/gallery',

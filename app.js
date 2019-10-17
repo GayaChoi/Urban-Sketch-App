@@ -6,7 +6,6 @@ var app = express();
 var session = require('express-session');
 const route = require('./app/router/route');
 const passport = require('passport');
-const passportConfig = require('./app/lib/passport');
 
 // ejs 설정
 app.locals.pretty = true;
@@ -31,9 +30,6 @@ app.use(require('cookie-parser')());
 // 반드시 passport 는 session 위에서 동작함
 app.use(passport.initialize());
 app.use(passport.session());
-
-// passport 관련 모듈
-passportConfig();
 
 app.use('/', route);
 

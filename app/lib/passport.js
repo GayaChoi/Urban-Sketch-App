@@ -17,7 +17,7 @@ module.exports = function() {
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
         callbackURL: 'https://urban-sketch.herokuapp.com/auth/facebook/callback' 
      }, 
-     function (accessToken, refreshToken, profile, cb) { // 토큰 요청을 함
+     function (accessToken, refreshToken, profile, cb) { // 토큰 요청을 함  
         return cb(null, profile);
      }));
 };
