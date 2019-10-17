@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
 
 // 자랑하기 페이지(로그인 및 정보 전송)
 router.get('/add', function(req, res, next) {
-    console.log(req.user);
+    console.log(req);
     res.render('add.html', { user: req.user }); 
 });
   
@@ -42,8 +42,8 @@ router.get('/auth/facebook', passport.authenticate('facebook'));
 
 router.get('/auth/facebook/callback', 
   // 로그인 실패 할 시 오류 페이지로 돌아가기
-  passport.authenticate('facebook', { successRedirect: '/add',
-  failureRedirect: '/' }));
+  passport.authenticate('facebook', { successRedirect: '/',
+  failureRedirect: '/add' }));
 
 // 구경하기 페이지
 router.get('/gallery',

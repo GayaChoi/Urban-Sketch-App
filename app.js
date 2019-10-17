@@ -23,12 +23,7 @@ app.use(express.static(path.join(__dirname, '/app/views/uploads')));
 app.use(session({ 
     secret: '12sdfwerwersdfserwerwef', 
     resave: true, 
-    saveUninitialized: true,
-    cookie: { 
-        secure: true,
-        httpOnly: true,
-        maxAge: 5184000000 // 60 days
-    }
+    saveUninitialized: true
 }));
   
 // 쿠키를 사용 할 수 있게 함
