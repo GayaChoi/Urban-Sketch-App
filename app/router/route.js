@@ -32,6 +32,7 @@ router.get('/', function(req, res, next) {
 
 // 자랑하기 페이지(로그인 및 정보 전송)
 router.get('/add', function(req, res, next) {
+    console.log(req.user);
     res.render('add.html', { user: req.user }); 
 });
   
