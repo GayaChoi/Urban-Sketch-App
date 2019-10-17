@@ -35,6 +35,17 @@ router.get('/add', function(req, res, next) {
     res.render('add.html', { user: req.user }); 
 });
   
+
+// facebook login 처리
+router.get('/auth/facebook', passport.authenticate('facebook'));
+
+router.get('/auth/facebook/callback', 
+  // 로그인 실패 할 시 오류 페이지로 돌아가기
+  passport.authenticate('facebook', { failureRedirect: '/'}),
+  function(req, res) {
+      res.redirect('/add');
+});
+
 // 구경하기 페이지
 router.get('/gallery',
   function(req, res, next) { 
@@ -71,16 +82,6 @@ router.post('/uploads',
         res.redirect('/gallery');
     }
 });
-
-// facebook login 처리
-router.get('/auth/facebook', passport.authenticate('facebook'));
-
-router.get('/auth/facebook/callback', 
-  // 로그인 실패 할 시 오류 페이지로 돌아가기
-  passport.authenticate('facebook', { failureRedirect: '/'}),
-  function(req, res) {
-      res.redirect('/add');
-  });
 
 // 404 에러페이지
 router.get('/:pageId', function(req, res, next) {
