@@ -5,6 +5,7 @@ const app = require('./app');
 
 const server = http.createServer(app);
 
-server.listen(8000, function() {
+
+server.listen(process.env.PORT || 8000, function() {
     console.log("success server");
 });

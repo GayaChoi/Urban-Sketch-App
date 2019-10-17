@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var passport = require('passport');
+var compression = require('compression');
 var app = express();
 var router = express.Router();
 const bodyParser = require('body-parser');
@@ -22,6 +23,7 @@ var imgApp = {}; // form 에서 넘겨받은 데이터를 저장하는 객체
 // POST 메소드 값 추출
 bodyParser.urlencoded({ extended: false });
 app.use(bodyParser.json());
+app.use(compression());
 
 // 메인 페이지
 router.get('/', function(req, res, next) {
@@ -47,16 +49,16 @@ router.get('/gallery',
         }
       }
   });
-  
+
 // 업로드 처리 페이지
 // 로그인 에 성공 할 시 실행
 router.post('/uploads', 
   upload.single('img'), 
      function(req, res, next) {
         if (req.file === undefined) {
-          res.status(500).render('404.html',{errorStatus:"500",context:"이미지를 업로드해주세요."});  
+          res.status(400).render('404.html',{errorStatus:"400 Bad Request",context:"이미지를 업로드해주세요."});  
         } else if (!(imgApp)) {
-          res.status(502).render('404.html',{errorStatus:"502",context:"관리자에게 문의 해주세요."});
+          res.status(502).render('404.html',{errorStatus:"502 Bad Gateway",context:"관리자에게 문의 해주세요."});
         } else {
           imgApp = {
             'src': '../' + req.file.filename,
@@ -102,13 +104,14 @@ router.get('/add/:pageId/',
 
 
 router.all('*', function(req, res, next) {
+    console.log(req);
     res.status(404).redirect('/404');
 });
 
 // ERROR Handling
 
 router.use(function(req, res) {
-   res.status(500).render('404.html',{errorStatus:`${res.statusCode}error`,context:"관리자에게 문의해주세요."});
+   res.status(500).render('404.html',{errorStatus:"500 Internal Server Error",context:"관리자에게 문의해주세요."});
 });
 
 module.exports = router;
