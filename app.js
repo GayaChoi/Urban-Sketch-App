@@ -21,7 +21,7 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '/app/views')));
 app.use(express.static(path.join(__dirname, '/app/views/uploads')));
 app.use(session({ 
-    secret: 'keyboard cat', 
+    secret: '12sdfwerwersdfserwerwef', 
     resave: true, 
     saveUninitialized: true
 }));
@@ -35,8 +35,6 @@ app.use(passport.session());
 // passport 관련 모듈
 passportConfig();
 
-// 메인 페이지
 app.use('/', route);
-
 
 module.exports = app;

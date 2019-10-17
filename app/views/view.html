@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../common/css/common.css">
-    <link rel="stylesheet" href="../Assets/css/gallery.css">
+    <link rel="stylesheet" href="../Assets/css/view.css">
     <link rel="stylesheet" href="../Assets/css/mqBanner.css">
      <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> 
-      <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <!-- bootstrap -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- google font -->
-     <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC|Muli|Nanum+Myeongjo|Noto+Sans|Noto+Sans+KR|Noto+Serif|Open+Sans+Condensed:300|Roboto|Roboto+Mono|Ubuntu|Work+Sans|Courgette|Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC|Muli|Nanum+Myeongjo|Noto+Sans|Noto+Sans+KR|Noto+Serif|Open+Sans+Condensed:300|Roboto|Roboto+Mono|Ubuntu|Work+Sans|Courgette|Source+Sans+Pro&display=swap" rel="stylesheet">
     <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- bootstrap js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <title>그리다,세상을.</title>
 </head>
 <body>
@@ -43,14 +40,8 @@
                     <span>|</span>
                 </a>
             </div>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Storage Error!</strong> 업로드 할 수 있는 컨텐츠 수 가 꽉찼습니다.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
         </div>
-        <div id="banner">
+        <div id="banner"> 
             <div class="animsition">
                 <div class="container-boxed" id="wrapper">
                     <div class="banner-title-wrap">
@@ -60,23 +51,18 @@
                         </div>
                     </div> 
                 </div>
-            </div>   
+            </div>          
         </div>
-        <div id="gallery_contents">
-            <div class="columns-area">
-                <div class="columns">
-                    <figure class="columns-img"></figure>
-                    <figure class="columns-img"></figure>
-                    <figure class="columns-img"></figure>
-                    <figure class="columns-img"></figure>
-                    <figure class="columns-img"></figure>
-                    <figure class="columns-img"></figure>
-                    <figure class="columns-img"></figure>
-                    <figure class="columns-img"></figure>
-                    <figure class="columns-img"></figure>
-                    <figure class="columns-img"></figure>
-                </div>
-            </div>
+        <div id="gallery_container">
+           <div class="gallery-img-area">
+              <img class="gallery-img">  
+              <section class="gallery-description-area">
+                    <p class="title"></p>
+                    <p class="location"></p>
+                    <p class="author"></p>
+                    <p class="description"></p>
+              </section>
+           </div>    
         </div>    
         <div id="main_contents">
                 <div class="main-contents-container">
@@ -222,7 +208,7 @@
                             </p> 
                             <ul class="horizontal">
                               <li class="artwork-story">
-                                <a href="/add" class="artwork-link">
+                                <a href="/add" class="daily-link">
                                     <div class="story-image-container">
                                        <img class="story-image" src="" alt="" srcset="">      
                                     </div>
@@ -232,7 +218,7 @@
                                 </a>
                               </li>
                               <li class="artwork-story">
-                                <a href="/add" class="artwork-link">
+                                <a href="/add" class="daily-link">
                                     <div class="story-image-container">
                                         <img class="story-image" src="" alt="" srcset="">      
                                     </div>
@@ -242,7 +228,7 @@
                                 </a>
                             </li>
                             <li class="artwork-story">
-                                <a href="/add" class="artwork-link">
+                                <a href="/add" class="daily-link">
                                     <div class="story-image-container">
                                         <img class="story-image" src="" alt="" srcset="">      
                                     </div>
@@ -267,7 +253,7 @@
                                         자신의 그림을 판매 하거나 다른 분들의 그림을 구입해보세요!색다른 경험이 될겁니다. 
                                       </p>      
                                     </a>
-                                    <a href="/" class="artwork-btn">
+                                    <a href="/sale" class="artwork-btn">
                                         go to shop
                                     </a>   
                                 </div>
@@ -276,7 +262,7 @@
                        </div> <!-- class second-row end -->
                    </div> <!-- class main-contents-content end --> 
                 </div> <!-- class main-contents-container end -->
-            </div> <!-- id main_contents end -->
+            </div> <!-- id main_contents end --> 
         <div id="footer">
             <div class="logo">
                 <a class="wrap-logo-box wrap-logo-title" href="/">
@@ -291,85 +277,26 @@
         </div>
     </div>
 </body>
-<script src="../common/js/common.js"></script> 
+<script src="../common/js/common.js"></script>
 <script src="../common/js/animate.js"></script>
 <script>
-    const figure = $("figure.columns-img");
-          length = figure.length;
-
-    // 서버에 넘어온 각 요소 값들을 storage 에 저장
-    var tag;
-    var voidArr = [];
-    var infoArr = [];
-
-    // 새로 고침 할 시 수행되는 이벤트
-    window.onbeforeunload = function() { 
-        init();
-    }
-
-    function print(tagIndex,stoIndex) {
-        figure
-        .eq(tagIndex)
-        .css("visibility","visible")
-        .html(window.localStorage.getItem(`tag[${stoIndex}]`));
-    }
-
-    function save(stoIndex) {
-        tag = 
-            `<a class='figure-page-img'>
-                <img src=<%=imgApp.src%> alt="">
-            </a>
-            <figcaption>
-                <ul>
-                <li>제목:<%=imgApp.title%></li>
-                <li>그린사람:<%=imgApp.author%></li>
-                <li>여행중인곳:<%=imgApp.location%></li>
-                <a class='figure-del-img' href='/gallery'>삭제</a>
-                <a href='/gallery'>수정</a> 
-                </ul>
-            </figcaption>`;  
-            
-        //서버측 데이터를 배열에 저장
-        info = ['<%=imgApp.src%>', 
-                '<%=imgApp.title%>',
-                '<%=imgApp.author%>',
-                '<%=imgApp.location%>',
-                '<%=imgApp.description%>'
-            ];
-
-        // 서버에서 전달받은 데이터 를 storage 에 저장
-        window.localStorage.setItem(`tag[${stoIndex}]`,tag);
-        window.localStorage.setItem(`info[${stoIndex}]`,JSON.stringify(info));
-    }
-
-    function init() {
-        console.log("figure length:" + length);
-         
-        if (window.localStorage.length >= (length * 2)) {   
-           if (`<%=user%>`) {
-             $(".alert").css("visibility","visible");
-             $(".alert").alert('dispose'); 
-           }
-        }
-        // 이전의 데이터 렌더링
-        for (var tagIndex = 0,stoIndex = 0;tagIndex < length;tagIndex++,stoIndex++) {         
-            if (window.localStorage.getItem(`tag[${stoIndex}]`) !== null) {
-                print(tagIndex,stoIndex);
-            } else {
-                if ((`<%=imgApp.src%>`!== "")) { // 이미지 가 존재하는 경우
-                    voidArr.push({
-                        tag: tagIndex, 
-                        sto: stoIndex    
-                    });
-                    
-                    save(voidArr[0].sto);
-                    print(voidArr[0].tag,voidArr[0].sto);
-                }   
-            }             
-        }
-    }
+    const pathName = window.location.pathname;
+          index = pathName.substring(pathName.lastIndexOf('/'));
+          length = index.substring(8,index.length);
+          tag = window.localStorage.getItem(`tag[${length}]`);
+          info = JSON.parse(window.localStorage.getItem(`info[${length}]`));
     
-    init();
+    
+    // localstorage 의 내용을 렌더링
+    $(".gallery-img").attr("src",'/' + info[0]);
+    $("section p.title").text(`제목:${info[1]}`);
+    $("section p.author").text(`그린사람:${info[2]}`);
+    $("section p.location").text(`여행중인곳:${info[3]}`);
+    $("section p.description").text(`설명:${info[4]}`);
+
+    window.addEventListener('popstate', function() {
+        window.location.reload(); 
+    }); 
+
 </script>
-<script src="../js/backPage.js"></script>
 </html>

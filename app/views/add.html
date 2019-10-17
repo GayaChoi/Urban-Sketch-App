@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="common/css/common.css">
-    <link rel="stylesheet" href="Assets/css/add.css">
-     <!-- fontawesome -->
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="../Assets/css/add.css">
+    <link rel="stylesheet" href="../Assets/css/mqBanner.css">
+    <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Muli|Nanum+Myeongjo|Noto+Sans|Noto+Sans+KR|Noto+Serif|Open+Sans+Condensed:300|Roboto|Roboto+Mono|Ubuntu|Work+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC|Muli|Nanum+Myeongjo|Noto+Sans|Noto+Sans+KR|Noto+Serif|Open+Sans+Condensed:300|Roboto|Roboto+Mono|Ubuntu|Work+Sans|Courgette|Source+Sans+Pro&display=swap" rel="stylesheet">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>그리다,세상을.</title>
 </head>
 <body>
@@ -34,7 +31,7 @@
                         <span>홈</span>
                         <span>|</span> 
                     </a>
-                    <a href="/add#">
+                    <a href="/add">
                         <span>자랑하기</span>
                         <span>|</span>
                     </a>
@@ -42,34 +39,20 @@
                         <span>구경하기</span>
                         <span>|</span>
                     </a>
-                    <a href="/sale">
-                        <span>판매하기</span>
-                   </a>
              </div>
         </div>
-        <div id="banner"> 
-            <div class="banner-title">
-                <h1>자랑하기</h1>
-            </div>    
-            <div class="art-frame-panel">
-               <img class="banner-img" src="Assets/image/최우성_천불.jpg">
-               <div class="art-frame-area">
-                   <ul class="art-frame-text">
-                       <li class="art-frame-title">제목: 천불(千佛)</li>
-                       <li class="art-frame-description">그린 사람: 최우성</li>
-                       <li class="art-frame-description frame-description-line">
-                          사용 재료: 종이에 수채화(??.?x??.?)
-                       </li>
-                       <li class="art-frame-description">
-                           국립중앙박물관 에서 그린 천불.사생대회 에서 무려 노력상을 받았음.
-                       </li> 
-                    </ul>
-               </div>   
-            </div> 
+        <div id="banner">
+            <div class="animsition">
+                <div class="container-boxed" id="wrapper">
+                    <div class="banner-title-wrap">
+                        <div class="banner-title">
+                            <h1>자랑하기</h1>
+                            <p>여러분들의 어반스케치를 자랑해보세요.</p> 
+                        </div>
+                    </div> 
+                </div>
+            </div>
         </div>
-        <div id="contents_img">
-            <img src="Assets/image/background_003.jpg" alt="">
-        </div> 
         <div id="login_contents">
             <div class="login-contents-area">   
                 <% if (!user) { %>
@@ -114,9 +97,6 @@
                               <input placeholder="그림의 제목을 적어주세요." name="title" type="text" tabindex="2" required>
                         </fieldset>
                         <fieldset>
-                              <input placeholder="이름 을 적어주세요." name="author" type="text" tabindex="2" required>
-                        </fieldset>
-                        <fieldset>
                               <textarea placeholder="그림에 대해 설명해주세요." name="description" tabindex="5" required></textarea>
                         </fieldset>
                         <div class="login-area">
@@ -132,51 +112,248 @@
                         </div>
                     </form>
                     <script>
-                            /* 이미지 업로드 관련 */
-                            const js = document.querySelector('html').classList.add('js');
-         
-                            var fileInput = document.querySelector('.input-file'),    
-                                button = document.querySelector('.input-file-trigger'),
-                                the_return = document.querySelector('.file-return');
+                        /* 이미지 업로드 관련 */
+                        const js = document.querySelector('html').classList.add('js');
+                        var fileInput = document.querySelector('.input-file'),    
+                            button = document.querySelector('.input-file-trigger'),
+                            the_return = document.querySelector('.file-return');
                               
-                             console.log(button);                
-                             // 키보드 이벤트가 눌렸을 때 발생
-                             button.addEventListener('keydown', function(event) {
-                                 if (event.keyCode === 13 || event.keyCode === 32) {
+                                            
+                            // 키보드 이벤트가 눌렸을 때 발생
+                            button.addEventListener('keydown', function(event) {
+                                if (event.keyCode === 13 || event.keyCode === 32) {
                                      fileInput.focus();
-                                 }
-                             });
+                                }
+                            });
                              
-                             // 마우스 이벤트가 눌렸을 때 발생
-                             button.addEventListener('click', function(event) {
+                            // 마우스 이벤트가 눌렸을 때 발생
+                            button.addEventListener('click', function(event) {
                                  fileInput.focus();
-                             });
+                            });
                              
-                             // 변경 이벤트
-                             // 버튼을 누를때 마다 파일 이 변경됨
-                             fileInput.addEventListener('change', function(event) {  
+                            // 변경 이벤트
+                            // 버튼을 누를때 마다 파일 이 변경됨
+                            fileInput.addEventListener('change', function(event) {  
                                  the_return.innerHTML = this.value;  
-                             });         
-                         </script>
+                            });         
+                        </script>
                 <% } %>  
             </div>
         </div>
-        <div id="contents_img">
-            <img src="Assets/image/background_004.jpg" alt="">
-        </div>   
+        <div id="main_contents">
+                <div class="main-contents-container">
+                   <div class="main-contents-content">
+                       <div class="first-row">
+                         <div class="artwork-section artist-section section-3">
+                             <p class="section-title">관리자의 그림:</p>
+                             <ul class="horizontal">
+                               <li class="artwork-list">
+                                  <div class="artwork-list-container">
+                                      <img class="artwork-img" src="" alt="">
+                                  </div>
+                                  <a class="title-and-artist artwork-link">
+                                    <p>
+                                      <span class="artwork-title">Sweden (2015)</span><br>
+                                      <span class="spacer"></span>
+                                      <span class="by-artist">by brian choi</span>
+                                    </p> 
+                                  </a>
+                                  <div class="artwork-details">
+                                      <p class="comment">
+                                         <span class="comment-contents">2015년에 여행했던 스웨덴 풍경.</span>
+                                         <br>
+                                         <span class="comment-author">in brian choi</span> 
+                                      </p>
+                                  </div>
+                               </li> 
+                               <li class="artwork-list">
+                                   <div class="artwork-list-container">
+                                       <img class="artwork-img" src="" alt="">
+                                   </div>
+                                   <a class="title-and-artist artwork-link">
+                                        <p>
+                                          <span class="artwork-title">Europe (2017)</span>
+                                          <br>
+                                          <span class="spacer"></span>
+                                          <span class="by-artist">by brian choi</span>
+                                        </p> 
+                                    </a>
+                                    <div class="artwork-details">
+                                          <p class="comment">
+                                             <span class="comment-contents">2017년에 여행했던 유럽 풍경.</span>
+                                             <br>
+                                             <span class="comment-author">in brian choi</span> 
+                                          </p>
+                                    </div>
+                               </li>
+                               <li class="artwork-list">
+                                     <div class="artwork-list-container">
+                                        <img class="artwork-img" src="" alt="">
+                                     </div>
+                                     <a class="title-and-artist artwork-link">
+                                         <p>
+                                           <span class="artwork-title">Japan (2019)</span>
+                                           <br>
+                                           <span class="spacer"></span>
+                                           <span class="by-artist">by brian choi</span>
+                                         </p> 
+                                     </a>
+                                     <div class="artwork-details">
+                                           <p class="comment">
+                                              <span class="comment-contents">2019년에 여행했던 일본 풍경.</span>
+                                              <br>
+                                              <span class="comment-author">in brian choi</span> 
+                                           </p>
+                                     </div>
+                                </li>
+                             </ul>  
+                         </div>
+                         <div class="artwork-section like-artwork">
+                            <p class="section-title">추천 하는 그림:</p>
+                            <ul class="horizontal">
+                              <li class="artwork-list">
+                                <div class="artwork-list-container">
+                                    <img class="artwork-img" src="https://i.pinimg.com/564x/91/fd/6d/91fd6d11499c73aa9185b3917988013a.jpg" alt="">
+                                </div>
+                                <a href="https://www.pinterest.co.kr/pin/408560997443304584/" class="title-and-artist artwork-link">
+                                    <p>
+                                      <span class="artwork-title">pinterest urbansketch</span>
+                                      <br>
+                                      <span class="spacer"></span>
+                                      <span class="by-artist">by pinterest</span>
+                                    </p> 
+                                </a>
+                                <div class="artwork-details">
+                                     <p class="comment">
+                                        <span class="comment-contents">볼펜의 번짐 효과 와 수채화 를 적당히 사용한 그림.분위기 가 밝아서 보기 좋아요.</span>
+                                        <br>
+                                        <span class="comment-author">in ???</span> 
+                                     </p>
+                                     <a href="https://www.pinterest.co.kr/pin/408560997443304584/" class="go-to-artwork">go to artwork</a>
+                                  </div>
+                              </li>
+                              <li class="artwork-list">
+                                <div class="artwork-list-container">
+                                     <img class="artwork-img" src="https://i.pinimg.com/564x/2d/c8/7d/2dc87db89ff8c1d05baecf78db647b6f.jpg" alt="">
+                                </div>
+                                <a href="https://www.pinterest.co.kr/pin/442197257164153764/" class="title-and-artist artwork-link">
+                                       <p>
+                                         <span class="artwork-title">Idea Drawing</span>
+                                         <br>
+                                         <span class="spacer"></span>
+                                         <span class="by-artist">by pinterest</span>
+                                       </p> 
+                                 </a>
+                                 <div class="artwork-details">
+                                       <p class="comment">
+                                          <span class="comment-contents">아이디어 드로잉.수채화의 색감이 너무 이쁨.선표현도 개성 있게 표현하여 재미있게 느낀 그림이네요.</span>
+                                          <br>
+                                          <span class="comment-author">in ???</span> 
+                                       </p>
+                                       <a href="https://www.pinterest.co.kr/pin/442197257164153764/" class="go-to-artwork">go to artwork</a>
+                                 </div>
+                              </li>
+                              <li class="artwork-list">
+                                    <div class="artwork-list-container">
+                                        <img class="artwork-img" src="https://i.pinimg.com/564x/f0/de/dc/f0dedc89e7d0e4b92e42faacd23cbff9.jpg" alt="">
+                                    </div>
+                                    <a href="https://www.pinterest.co.kr/pin/342906959129190461/" class="title-and-artist artwork-link">
+                                        <p>
+                                          <span class="artwork-title">Steps for Portrait Drawing with Charcoal</span>
+                                          <br>
+                                          <span class="spacer"></span>
+                                          <span class="by-artist">by pinterest</span>
+                                        </p> 
+                                    </a>
+                                    <div class="artwork-details">
+                                        <p class="comment">
+                                           <span class="comment-contents">차콜 의 분위기 에 맞게 활용한 그림.종이 색감 도 너무 마음에 듭니다.</span>
+                                           <br>
+                                           <span class="comment-author">in ???</span> 
+                                        </p>
+                                        <a href="https://www.pinterest.co.kr/pin/342906959129190461/" class="go-to-artwork">go to artwork</a>
+                                    </div>
+                                </li>
+                            </ul>
+                         </div><!-- artwork-section end -->
+                       </div><!-- class first-row end -->
+                       <div class="second-row">
+                         <div class="daily-section">
+                            <p class="section-title">오늘의 그림&nbsp;&nbsp;
+                               <span class="section-subtitle">여러분 의 어반스케치 를 공유 해보세요.</span>
+                            </p> 
+                            <ul class="horizontal">
+                              <li class="artwork-story">
+                                <a href="/add" class="artwork-link">
+                                    <div class="story-image-container">
+                                       <img class="story-image" src="" alt="" srcset="">      
+                                    </div>
+                                    <p class="story-headline">
+                                       test(1) 
+                                    </p>
+                                </a>
+                              </li>
+                              <li class="artwork-story">
+                                <a href="/add" class="artwork-link">
+                                    <div class="story-image-container">
+                                        <img class="story-image" src="" alt="" srcset="">      
+                                    </div>
+                                    <p class="story-headline">
+                                        test(2)
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="artwork-story">
+                                <a href="/add" class="artwork-link">
+                                    <div class="story-image-container">
+                                        <img class="story-image" src="" alt="" srcset="">      
+                                    </div>
+                                    <p class="story-headline">
+                                        test(3)
+                                    </p>
+                                </a>
+                             </li>
+                            </ul><!-- class horizontal end -->
+                        </div> <!-- class daily-section end -->
+                        <div class="sale-section">
+                            <p class="section-title">판매하기/구입하기</p>
+                            <div class="sale-content">
+                                <div class="sale-image-container">
+                                   <a href="" class="sale-link">
+                                      <img class="sale-img-link" src="https://i.pinimg.com/564x/2a/ee/8f/2aee8ffaf495cb741da7bdb8557ed3ca.jpg" alt="">
+                                   </a> 
+                                </div>
+                                <div class="sale-button">
+                                    <a href="" class="sale-content-link">
+                                      <p class="sale-outline">
+                                        자신의 그림을 판매 하거나 다른 분들의 그림을 구입해보세요!색다른 경험이 될겁니다. 
+                                      </p>      
+                                    </a>
+                                    <a href="/" class="artwork-btn">
+                                        go to shop
+                                    </a>   
+                                </div>
+                            </div>
+                        </div> <!-- class sale section end -->
+                       </div> <!-- class second-row end -->
+                   </div> <!-- class main-contents-content end --> 
+                </div> <!-- class main-contents-container end -->
+            </div> <!-- id main_contents end -->
         <div id="footer">
             <div class="logo">
                 <a class="wrap-logo-box wrap-logo-title" href="/">
                     <span class="wrap-logo-text-1">그리다,</span>
+                    <br>
                     <span class="wrap-logo-text-2">세상을.</span>
                 </a>
             </div>
             <div class="copyright">
                 <span class="copyright-site">2019©️그리다,세상을.</span><br>
-                <span class="copyright-font">©️이 페이지에는 우아한형제들에서 제공한 배달의민족 한나체, 한나체 Air, 한나체 Pro, 주아체, 도현체, 연성체, 기랑해랑체가 적용되어 있습니다.</span>
+                <span class="copyright-img">©️이 페이지에 있는 모든 그림들을 무단,복제 를 금합니다.</span>
             </div>
         </div>
     </div>
 </body>
-<script src="common/js/common.js"></script>
+<script src="../common/js/common.js"></script>
+<script src="../common/js/animate.js"></script>
 </html>

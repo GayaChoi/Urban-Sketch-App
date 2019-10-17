@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-var login =  require('connect-ensure-login');
 var passport = require('passport');
 var app = express();
 var router = express.Router();
@@ -19,69 +18,56 @@ const upload = multer({
     limits: { fileSize: 1 * 1024 * 1024}
 });
 
-let imgApp = {}; // form 에서 넘겨받은 데이터를 저장하는 객체
-let num = 0;
+var imgApp = {}; // form 에서 넘겨받은 데이터를 저장하는 객체
 // POST 메소드 값 추출
 bodyParser.urlencoded({ extended: false });
 app.use(bodyParser.json());
 
 // 메인 페이지
-router.get('/', function(req, res) {
+router.get('/', function(req, res, next) {
     res.render('index.html');
 });
 
 // 자랑하기 페이지(로그인 및 정보 전송)
-router.get('/add', function(req, res) {
-    res.render('add.html', { user: req.user });
+router.get('/add', function(req, res, next) {
+    res.render('add.html', { user: req.user }); 
 });
-
+  
 // 구경하기 페이지
 router.get('/gallery',
-  function(req, res) {
-      res.render('gallery.html', {
-        title: imgApp.title,
-        path: imgApp.src,
-        loc: imgApp.location,
-        author: imgApp.author,
-        user: req.user,
-        num: num
-      }); 
+  function(req, res, next) { 
+      if (!(imgApp)) {
+        next();  
+      } else {
+        res.render('gallery.html', { imgApp,user: req.user }); 
       
-      // 중복을 제거 하기 위해 초기화
-      for (index in imgApp) {
-         imgApp[index] = null;
+        // 중복을 제거 하기 위해 초기화
+        for (index in imgApp) {
+          imgApp[index] = null;
+        }
       }
   });
-
-// 판매하기 페이지
-router.get('/sale', 
-  login.ensureLoggedIn('/add'),
-      function(req, res) {  
-      res.render('sale.html');
-});
-
-// 판매하기 팝업
-router.get('/saleInfo', 
-  login.ensureLoggedIn('/add'),
-     function(req, res) {
-     res.render('saleInfo.html');
-});  
-
+  
 // 업로드 처리 페이지
 // 로그인 에 성공 할 시 실행
 router.post('/uploads', 
-     upload.single('img'), 
-     function(req, res) {
-      imgApp = {
-        'src': req.file.filename,
-        'title': req.body.title,
-        'location': req.body.location,
-        'author': req.body.author,
-        'description': req.body.description    
-      };     
-      
-      res.redirect('/gallery');
-      num++; 
+  upload.single('img'), 
+     function(req, res, next) {
+        if (req.file === undefined) {
+          res.status(500).render('404.html',{errorStatus:"500",context:"이미지를 업로드해주세요."});  
+        } else if (!(imgApp)) {
+          res.status(502).render('404.html',{errorStatus:"502",context:"관리자에게 문의 해주세요."});
+        } else {
+          imgApp = {
+            'src': '../' + req.file.filename,
+            'title': req.body.title,
+            'location': req.body.location,
+            'author': req.user.displayName,
+            'description': req.body.description  
+          };     
+
+        res.redirect('/gallery');
+    }
 });
 
 // facebook login 처리
@@ -89,15 +75,40 @@ router.get('/fb/login', passport.authenticate('facebook'));
 
 router.get('/return', 
   // 로그인 실패 할 시 오류 페이지로 돌아가기
-  passport.authenticate('facebook', { failureRedirect: '/' }),
+  passport.authenticate('facebook', { failureRedirect: '/'}),
   function(req, res) {
       res.redirect('/add');
   });
 
 // 404 에러페이지
-router.get('/:pageId', function(req, res) {
-    res.render('404.html');
+router.get('/:pageId', function(req, res, next) {
+    res.render('404.html',{errorStatus:"404 NotFound",context:"페이지를 찾을 수 없습니다."});
 });
 
+/* 404 처리 및 링크 페이지 */
+router.get('/gallery/:pageId/', 
+  function(req, res, next) {
+      if ((req.params.pageId.indexOf('pageId=')) !== -1 && (req.params.pageId !== "pageId=")) {
+        res.render('view.html'); 
+      } else {
+        res.render('404.html',{errorStatus:"404 NotFound",context:"페이지를 찾을 수 없습니다."});
+      }
+});
+
+router.get('/add/:pageId/', 
+  function(req, res, next) {
+    res.render('404.html',{errorStatus:"404 NotFound",context:"페이지를 찾을 수 없습니다."});  
+});
+
+
+router.all('*', function(req, res, next) {
+    res.status(404).redirect('/404');
+});
+
+// ERROR Handling
+
+router.use(function(req, res) {
+   res.status(500).render('404.html',{errorStatus:`${res.statusCode}error`,context:"관리자에게 문의해주세요."});
+});
 
 module.exports = router;

@@ -17,8 +17,8 @@ module.exports = function() {
         clientID: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
         callbackURL: '/return'
-   }, 
-   function (accessToken, refreshToken, profile, cb) {
+     }, 
+     function (accessToken, refreshToken, profile, cb) { // 토큰 요청을 함
         return cb(null, profile);
-   }));
+     }));
 };
