@@ -36,7 +36,6 @@ router.get('/add', function(req, res, next) {
   res.render('add.html', { user: req.user }); 
 });  
 
-  
 // facebook login 처리
 router.get('/auth/facebook', passport.authenticate('facebook'));
 
