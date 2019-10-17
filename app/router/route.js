@@ -73,9 +73,9 @@ router.post('/uploads',
 });
 
 // facebook login 처리
-router.get('/fb/login', passport.authenticate('facebook'));
+router.get('/auth/facebook', passport.authenticate('facebook'));
 
-router.get('/return', 
+router.get('/auth/facebook/callback', 
   // 로그인 실패 할 시 오류 페이지로 돌아가기
   passport.authenticate('facebook', { failureRedirect: '/'}),
   function(req, res) {
