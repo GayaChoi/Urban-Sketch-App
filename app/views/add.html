@@ -55,58 +55,58 @@
         </div>
         <div id="login_contents">
             <div class="login-contents-area">   
-                <% if (!user) { %>
-                    <form id="cantact" action="/auth/facebook" method="get" enctype="multipart/form-data">
-                            <h1 class="login-contents-title">
-                                "여행중에 그린 그림을 자랑해보세요!<br>
-                                 세상에 못그린 그림은 없습니다:)"
-                            </h1>   
-                    <div class="login-area">
-                        <p class="input-file-title">
-                            <i class="fas fa-check-circle"></i>
-                              로그인 버튼을 눌러주세요.
-                        </p>
-                        <div class="buttons">
-                            <div class="main-btn-container">
-                                <input value="facebook login" name="submit" type="submit" class="main-btn main-btn-1"></input>
-                            </div>
+                <% if (user !== undefined) { %>
+                    <form id="cantact" action="/uploads" method="post" enctype="multipart/form-data">
+                        <h1 class="login-contents-title">
+                            "여행중에 그린 그림을 자랑해보세요!<br>
+                             세상에 못그린 그림은 없습니다:)"
+                        </h1>
+                        <div class="input-file-container">
+                            <p class="input-file-title">
+                                <i class="fas fa-check-circle"></i>그림을 올려주세요.
+                            </p>
+                            <input name="img" class="input-file" id="my-file" type="file">
+                            <label tabindex="0" for="my-file" class="main-btn main-btn-1 input-file-trigger">그림올리기</label>
                         </div>
-                    </div>
-                </form>
+                        <p class="file-return"></p>
+                            <fieldset>
+                               <p class="input-file-title">
+                                   <i class="fas fa-check-circle"></i>다음과 같이 작성해주세요.
+                               </p>
+                            <input placeholder="현재 여행 중 인 곳은 어디신가요?" name="location" type="text" tabindex="1" required>
+                            </fieldset>
+                            <fieldset>
+                                  <input placeholder="그림의 제목을 적어주세요." name="title" type="text" tabindex="2" required>
+                            </fieldset>
+                            <fieldset>
+                                  <textarea placeholder="그림에 대해 설명해주세요." name="description" tabindex="5" required></textarea>
+                            </fieldset>
+                            <div class="login-area">
+                                <p class="input-file-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    자랑하기 버튼을 눌러주세요.
+                                </p>
+                                <div class="buttons">
+                                    <div class="main-btn-container">
+                                        <input value="자랑하기!" name="submit" type="submit" class="main-btn main-btn-1"></input>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                 <% } else { %>
-                <form id="cantact" action="/uploads" method="post" enctype="multipart/form-data">
-                    <h1 class="login-contents-title">
-                        "여행중에 그린 그림을 자랑해보세요!<br>
-                         세상에 못그린 그림은 없습니다:)"
-                    </h1>
-                    <div class="input-file-container">
-                        <p class="input-file-title">
-                            <i class="fas fa-check-circle"></i>그림을 올려주세요.
-                        </p>
-                        <input name="img" class="input-file" id="my-file" type="file">
-                        <label tabindex="0" for="my-file" class="main-btn main-btn-1 input-file-trigger">그림올리기</label>
-                    </div>
-                    <p class="file-return"></p>
-                        <fieldset>
-                           <p class="input-file-title">
-                               <i class="fas fa-check-circle"></i>다음과 같이 작성해주세요.
-                           </p>
-                        <input placeholder="현재 여행 중 인 곳은 어디신가요?" name="location" type="text" tabindex="1" required>
-                        </fieldset>
-                        <fieldset>
-                              <input placeholder="그림의 제목을 적어주세요." name="title" type="text" tabindex="2" required>
-                        </fieldset>
-                        <fieldset>
-                              <textarea placeholder="그림에 대해 설명해주세요." name="description" tabindex="5" required></textarea>
-                        </fieldset>
+                            <form id="cantact" action="/auth/facebook" method="get" enctype="multipart/form-data">
+                                <h1 class="login-contents-title">
+                                    "여행중에 그린 그림을 자랑해보세요!<br>
+                                    세상에 못그린 그림은 없습니다:)"
+                                </h1>   
                         <div class="login-area">
                             <p class="input-file-title">
                                 <i class="fas fa-check-circle"></i>
-                                자랑하기 버튼을 눌러주세요.
+                                로그인 버튼을 눌러주세요.
                             </p>
                             <div class="buttons">
                                 <div class="main-btn-container">
-                                    <input value="자랑하기!" name="submit" type="submit" class="main-btn main-btn-1"></input>
+                                    <input value="facebook login" name="submit" type="submit" class="main-btn main-btn-1"></input>
                                 </div>
                             </div>
                         </div>

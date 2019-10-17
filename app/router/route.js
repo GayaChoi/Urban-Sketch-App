@@ -29,6 +29,13 @@ app.use(compression());
 router.get('/', function(req, res, next) {
     res.render('index.html');
 });
+
+// 자랑하기 페이지(로그인 및 정보 전송)
+router.get('/add', function(req, res, next) {
+  console.log("user login:" + req.user);
+  res.render('add.html', { user: req.user }); 
+});  
+
   
 // facebook login 처리
 router.get('/auth/facebook', passport.authenticate('facebook'));
@@ -39,10 +46,6 @@ router.get('/auth/facebook/callback',
   failureRedirect: '/add' }));
 
 
-// 자랑하기 페이지(로그인 및 정보 전송)
-router.get('/add', function(req, res, next) {
-  res.render('add.html', { user: req.user }); 
-});  
 
 // 구경하기 페이지
 router.get('/gallery',
