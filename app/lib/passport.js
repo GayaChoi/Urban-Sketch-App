@@ -15,7 +15,9 @@ module.exports = function() {
      passport.use(new FacebookStrategy({
         clientID: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-        callbackURL: 'https://urban-sketch.herokuapp.com/auth/facebook/callback'
+        callbackURL: 'https://urban-sketch.herokuapp.com/auth/facebook/callback',
+        passReqToCallback : true,
+        profileFields: ['id', 'emails', 'name'] 
      }, 
      function (accessToken, refreshToken, profile, cb) { // 토큰 요청을 함
         return cb(null, profile);
