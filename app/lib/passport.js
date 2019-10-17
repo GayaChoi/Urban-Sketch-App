@@ -13,7 +13,6 @@ module.exports = function() {
      }); 
      
      passport.use(new FacebookStrategy({
-        // TODO: 비밀 키는 env 사용(heroku 에서 도 따로 설정),url 은 heroku 런칭 후 변경   
         clientID: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
         callbackURL: '/return'
