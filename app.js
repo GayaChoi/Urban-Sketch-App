@@ -9,16 +9,16 @@ const passport = require('passport');
 
 // ejs 설정
 app.locals.pretty = true;
-app.set('view engine', 'ejs');
+
 app.set('views', __dirname + '/app/views');
 // 브라우저 와 연동
-app.engine('html',require('ejs').renderFile);
+/* app.engine('html',require('ejs').renderFile); */
+app.set('view engine', 'ejs');
 
 // 로그 읽어줌
 app.use(morgan('dev'));
 // 경로 설정
 app.use(express.static(path.join(__dirname, '/app/views')));
-app.use(express.static(path.join(__dirname, '/app/views/uploads')));
 app.use(session({ 
     secret: '12sdfwerwersdfserwerwef', 
     resave: true, 

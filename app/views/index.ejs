@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../common/css/common.css">
+    <link rel="stylesheet" href="../../Assets/css/index.css">
+    <link rel="stylesheet" href="../../Assets/css/mq.css">
+     <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> 
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC|Muli|Nanum+Myeongjo|Noto+Sans|Noto+Sans+KR|Noto+Serif|Open+Sans+Condensed:300|Roboto|Roboto+Mono|Ubuntu|Work+Sans|Courgette|Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>   
+    <!-- bootstrap js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>그리다,세상을.</title>
+</head>
+<body>
+    <div id="wrap">
+        <%- include('header.ejs') -%>
+        <div id="banner"> 
+           <div class="banner-header">
+                <img src="https://m.media-amazon.com/images/S/aplus-media/vc/707ddf77-982c-466f-9ece-71ab12c4cb79.jpg" alt="">
+             <div class="banner-conainner">
+                <div class="banner-contents">
+                   <h1 class="banner-contents-title">about</h1> 
+                   <article class="banner-contents-context">
+                    <div class="text-area">
+                       <p class="before">
+                            여러분들은 그림 그리는 것을 좋아하시나요?<br>
+                            저는 무척 좋아 한답니다.여행 하면서 드로잉 을 하는 것 만큼 좋은 건 없다고 봐요!<br>
+                            저는 한 달에 하나씩 사이드 프로젝트 를 진행 중 인데요.이번 프로젝트 주제는 여러분들 에게 직접 그린 "어반스케치"를 공유하는 것이에요!</br>
+                            보통 사람들은 자신의 그림을 남에게 보여주는 것을 부끄럽게 생각하지만,세상에 못그린 그림은 없다고 봅니다:)<br>
+                        </p>
+                        <p class="after">
+                            직접 그린 어반스케치를 감상 할 수 있어요!
+                            <br>
+                        </p>
+                    </div>
+                   </article>
+                </div> 
+             </div>   
+           </div>
+        </div> 
+        <div id="gallery_contents">
+            <div class="columns-area">      
+                <div class="columns"> 
+                    <figure class="columns-img"></figure>
+                    <figure class="columns-img"></figure>
+                    <figure class="columns-img"></figure>
+                    <figure class="columns-img"></figure>
+                    <figure class="columns-img"></figure>
+                    <figure class="columns-img"></figure>
+                    <figure class="columns-img"></figure>
+                    <figure class="columns-img"></figure>
+                    <figure class="columns-img"></figure>
+                    <figure class="columns-img"></figure>
+                </div>
+            </div>
+        </div>    
+        <%- include('contents.ejs') -%>
+        <%- include('footer.ejs') -%>
+    </div>
+</body>
+<script src="../../common/js/animate.js"></script>
+<script src="../../js/load.js"></script>
+</html>

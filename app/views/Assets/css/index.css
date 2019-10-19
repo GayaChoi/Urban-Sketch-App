@@ -52,15 +52,68 @@
    color: #926a98;
 }
 
-i.fas.fa-long-arrow-alt-right {
+/* contents 부분 */
+
+#gallery_contents {
+   width: 100%;
+   height: 100%;
+   color: #000000;
    font-size: 30px;
-   color: #949494;
+   background: #f6f7f8;
 }
 
-i.fas.fa-long-arrow-alt-right:hover {
-   color: #000000;
-   cursor: pointer;
+figure.columns-img a {
+   cursor: pointer; 
 }
+
+/* media query */
+@media (min-width: 320px) and (max-width: 1000px) {
+ #wrap {
+     width: 1000px;
+ } 
+}
+
+@media (max-width: 1366px) {
+ 
+}
+
+@media (max-width: 986px) {
+ .columns-area .columns {
+   max-width: 700px;
+   position: relative;
+   top: 0;
+   left: -20px; 
+ }
+}
+
+@media (max-width: 900px) {
+ .columns-area .columns {
+   max-width: 500px;
+   left: -45px;
+ }
+}
+
+@media (max-width: 800px) {
+ #gallery_contents .columns {
+   max-width: 300px;
+   left: -100px;
+ } 
+}
+
+@media (max-width: 700px) {
+ #gallery_contents .columns {
+   max-width: 200px;
+   left: -150px;
+ } 
+}
+
+@media (min-width: 320px) and (max-width: 620px) {
+ #gallery_contents .columns {
+   max-width: 150px;
+   left: -300px;
+ } 
+}
+
 
 
 
