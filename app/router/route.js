@@ -24,7 +24,8 @@ passport.deserializeUser(function(obj, cb) {
 
 // 메인 페이지
 router.get('/', function(req, res) {
-    console.log("request:" + req);
+    console.log("로그인 테스트:");
+    console.log(req);
     res.render('index', {user:req.displayName});
 });
 
