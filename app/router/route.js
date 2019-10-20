@@ -1,32 +1,13 @@
 var express = require('express');
 var passport = require('passport');
-var FacebookStrategy = require('passport-facebook').Strategy;
 var router = express.Router();
 
 require('dotenv').config({path: __dirname + '/.env'});
 
-passport.use(new FacebookStrategy({
-    clientID: process.env.FACEBOOK_CLIENT_ID,
-    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-    callbackURL: 'https://urban-sketch.herokuapp.com/auth/facebook/callback' 
-}, 
-function(accessToken, refreshToken, profile, cb) {
-      return cb(null, profile);
-}));
-
-passport.serializeUser(function(user, cb) {
-     cb(null, user);
-});
-
-passport.deserializeUser(function(obj, cb) {
-     cb(null, obj);
-}); 
-
 // 메인 페이지
 router.get('/', function(req, res) {
-    console.log("로그인 테스트:");
-    console.log(req);
-    res.render('index', {user:req.displayName});
+    console.log(req.user);
+    res.render('index',{user:req.user});
 });
 
 // facebook login 처리
