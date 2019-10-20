@@ -3,7 +3,6 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var router = express.Router();
 
-
 require('dotenv').config({path: __dirname + '/.env'});
 
 passport.use(new FacebookStrategy({
@@ -25,8 +24,8 @@ passport.deserializeUser(function(obj, cb) {
 
 // 메인 페이지
 router.get('/', function(req, res) {
-    console.log(req.user);
-    res.render('index', {user:req.user});
+    console.log("request:" + req);
+    res.render('index', {user:req.displayName});
 });
 
 // facebook login 처리
