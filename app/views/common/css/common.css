@@ -106,6 +106,7 @@ div#header>a {
    background: #ffffff;
    text-align: center;
    color: #777777;
+   visibility: hidden;
 }
 
 div.animsition {
@@ -282,6 +283,7 @@ figcaption ul a:hover {
    width: 100%;
    min-width: 975px;
    background: #ffffff;
+   display: none;
 }
 
 .main-contents-content {

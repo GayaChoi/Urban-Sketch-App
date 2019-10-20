@@ -71,19 +71,7 @@
         <%- include('footer.ejs') -%>
     </div>
 </body>
+<script src="../../js/mainLoad.js"></script>
 <script src="../../common/js/animate.js"></script>
-<script src="../../js/load.js"></script>
-<script> 
-    $( ".artwork-btn" ).on("click", function() {
-        const USER = '<%user%>'.displayName;
-
-        if (USER !== undefined) {
-            if (USER.displayName) {
-              $( ".alert" ).css("display","none");    
-            } 
-        } else {
-            $( ".alert" ).css("display","block"); 
-        }
-    });
-</script>
+<script src="../../js/click.js"></script>
 </html>

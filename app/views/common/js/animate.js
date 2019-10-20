@@ -2,7 +2,6 @@ const row = $(".first-row");
       artList = $(".artwork-list");
       artLink = $(".artwork-link");
       saleLink = $(".sale-img-link");
-      line = $(".line-h");
 
 
 row.hover(
@@ -39,6 +38,4 @@ saleLink.hover(
       $(".sale-outline").removeClass("img-hover");
    }
 );
-
-line.css("width","270px");
  

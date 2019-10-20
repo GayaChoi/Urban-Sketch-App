@@ -214,9 +214,5 @@ p {
     width: 100%;
     margin: 1px auto 0px;
     position: static;
-    visibility: hidden;
-}
-
-#mainContents {
-    visibility: hidden;
+    display: none;
 }

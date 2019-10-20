@@ -27,5 +27,5 @@ $(document).ready(function() {
 $( window ).on('load',function() {
     $( "#banner" ).css("visibility","visible");
     $( ".columns figure" ).css("visibility","visible");
-    $( "#main_contents" ).css("visibility","visible");
+    $( "#mainContents" ).css("display","block");
 });
