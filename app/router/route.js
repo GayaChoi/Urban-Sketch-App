@@ -24,8 +24,9 @@ passport.deserializeUser(function(obj, cb) {
 }); 
 
 // 메인 페이지
-router.get('/', function(req, res, next) {
-    res.render('index');
+router.get('/', function(req, res) {
+    console.log(req.user);
+    res.render('index', {user:req.user});
 });
 
 // facebook login 처리
@@ -38,16 +39,16 @@ router.get('/auth/facebook/callback',
     res.redirect('/');
   });
 
-router.get('/post/:pageId', function(req, res, next) {
+router.get('/post/:pageId', function(req, res) {
     res.render('post');
 });
 
 // 404 에러페이지
-router.get('/:pageId', function(req, res, next) {
+router.get('/:pageId', function(req, res) {
    res.render('404',{errorStatus:"404 NotFound",context:"페이지를 찾을 수 없습니다."}); 
 });
 
-router.all('*', function(req, res, next) {
+router.all('*', function(req, res) {
     res.redirect('/404');
 });
 
