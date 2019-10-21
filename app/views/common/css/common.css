@@ -77,7 +77,8 @@ div#header>a {
    width: 100%;
    min-width: 975px;
    background: #ffffff;
-   display: none;
+   visibility: hidden;
+   display: none; 
 }
 
 .main-contents-content {

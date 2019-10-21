@@ -26,6 +26,9 @@ $(document).ready(function() {
 
 $( window ).on('load',function() {
     $( "#banner" ).css("visibility","visible");
+    $( ".columns figure" ).css("display","inline-block");
     $( ".columns figure" ).css("visibility","visible");
+
     $( "#mainContents" ).css("display","block");
+    $( "#mainContents" ).css("visibility","visible");
 });

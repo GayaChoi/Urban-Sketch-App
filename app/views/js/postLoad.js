@@ -9,5 +9,6 @@ $(document).ready(function() {
 $( window ).on("load",function() {
      $( ".post-wrap" ).css("display","block");
      $( "#mainContents" ).css("display","block");
+     $( "#mainContents" ).css("visibility","visible");
      $( ".alert" ).css("dislay","none");  
 });

@@ -145,7 +145,6 @@ figure.columns-img a {
     width: 90%;
     max-width: 1100px;
     margin: 50px auto;
-    display: inline-block;
 }
 
 .columns figure {
@@ -156,7 +155,7 @@ figure.columns-img a {
     padding: 15px;
     padding-bottom: 10px;
     transition: opacity .4s ease-in-out;
-    display: inline-block;
+    display: none;
     visibility: hidden;
 }
 
