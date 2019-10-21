@@ -1,5 +1,31 @@
 /* media query */
 @media screen and (min-width: 768px) and (max-width: 999px) {   
+   .right-column {
+      top: 10%;
+      left: 60%;
+   }
+   
+   .middle-columns {
+      width: 100%;
+      float: left; 
+   }
+
+   .post-left-columns {
+      width: 100%;
+   }
+
+   .post-page {
+      width: 100%;
+   }
+
+   
+   #travelArt {
+      margin-top: 50px;
+      width: 250px;
+      height: 250px;   
+   }
+   
+
    .banner-header {
       width: 100%;
    }
@@ -49,6 +75,30 @@
 @media (min-width: 501px) and (max-width: 767px) {
    .banner-header {
       width: 100%;
+   }
+
+   .right-column {
+      top: 10%;
+      left: 60%;
+   }
+   
+   .middle-columns {
+      width: 100%;
+      float: left; 
+   }
+
+   .post-left-columns {
+      width: 100%;
+   }
+
+   .post-page {
+      width: 100%;
+   }
+
+   #travelArt {
+      margin-top: 50px;
+      width: 250px;
+      height: 250px;   
    }
    
    #mainContents {
@@ -117,7 +167,23 @@
    body {
       position: relative;
    }
+
+   .right-column {
+      top: 10%;
+      left: 35%;
+   }
    
+   .middle-columns {
+      width: 100%;
+      float: left; 
+   }
+
+   #travelArt {
+      margin-top: 50px;
+      width: 250px;
+      height: 250px;   
+   }
+
    .banner-header {
       width: 100%;
    }
