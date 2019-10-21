@@ -1,17 +1,13 @@
 /* media query */
 @media (min-width: 0px) and (max-width: 500px) {   
-    html, body {
+   html, body {
       overflow-x: hidden;
-    }
+   }
 
-    body {
+   body {
       position: relative;
-    }
-   
-    .columns {
-       width: 100%;
-    }
-
+   }
+ 
    .banner-header {
       width: 100%;
 
@@ -19,6 +15,32 @@
    
    #mainContents {
       min-width: 0px;
+   }
+
+   .main-contents-container .like-artwork 
+   li:last-child .artwork-details {
+      text-align: left;
+      float: left;
+   } 
+
+   .main-contents-container .expanded 
+   .like-artwork li:last-child 
+   .title-and-artist {
+      text-align: left;
+   }
+
+
+   .main-contents-container 
+   .like-artwork li:nth-last-child(2) 
+   .artwork-details {
+      text-align: left;
+      float: left;
+   }
+
+   .main-contents-container .expanded 
+   .like-artwork li:nth-last-child(2) 
+   .title-and-artist {
+      text-align: left;
    }
 
    .main-contents-content {
