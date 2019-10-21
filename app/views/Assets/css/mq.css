@@ -1,5 +1,10 @@
 /* media query */
 @media (min-width: 0px) and (max-width: 500px) {
+   .banner-header img {
+      width: 100px;
+      height: 100px;
+   }
+   
    .banner-header {
        width: 100%;
    }
