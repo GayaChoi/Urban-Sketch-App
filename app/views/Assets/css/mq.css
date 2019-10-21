@@ -1,11 +1,12 @@
 /* media query */
-@media (min-width: 0px) and (max-width: 500px) {
-   article.banner-contents-context {
-      text-align: left;
-   }
-   
-   .banner-header {
+@media (min-width: 0px) and (max-width: 500px) {   
+    .columns {
        width: 100%;
+    }
+
+   .banner-header {
+      width: 100%;
+
    }
    
    #mainContents {
