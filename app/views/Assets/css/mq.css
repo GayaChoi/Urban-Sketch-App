@@ -5,7 +5,7 @@
    }
    
    #mainContents {
-      min-width: 100%;
+      min-width: 0px;
    }
 
    .main-contents-content {
