@@ -52,6 +52,9 @@ div#header>a {
  
 .wrap-logo-title {
     color: #66436b;
+    outline-style:none;
+    box-shadow:none;
+    border-color:transparent;
     font-size: 15px;
     font-family: 'Helvetica',Arial, sans-serif;
 }
