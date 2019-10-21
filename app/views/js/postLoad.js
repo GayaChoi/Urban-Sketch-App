@@ -1,6 +1,7 @@
 $(document).ready(function() {
     for (var i = 0;i < 10;i++) {
        if (window.location.pathname == `/post/pageId=${i}` || window.location.pathname == `/post/pageId=${i}/`) {
+          $( "a.popupImage").attr("href",`/Assets/image/${i}.jpg`);
           $( ".popupImage img" ).attr("src",`/Assets/image/${i}.jpg`);
        } 
     } 

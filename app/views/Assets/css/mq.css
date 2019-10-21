@@ -1,24 +1,110 @@
 /* media query */
-@media (min-width: 0px) and (max-width: 500px) {   
-   /* 가로 스크롤 사용 해지 */
-   html, body {
-      overflow-x: hidden;
-   }
+/* 가로 스크롤 사용 해지 */
+/* html, body {
+   overflow-x: hidden;
+}
 
-   body {
-      position: relative;
-   }
- 
+body {
+   position: relative;
+} */
+
+@media (min-width: 501px) and (max-width: 767px) {
    .banner-header {
       width: 100%;
+   }
+
+   #mainContents {
+      min-width: 0px;
+   }
+
+   .main-contents-content {
+      width: 100%;
+   } 
+
+   
+   .artwork-view .art-title {
+      max-width: 250px;
+      text-align: left;
    }
    
    .mobile-text {
       display: block;
    }
 
+   .main-contents-container .like-artwork 
+   li:last-child .artwork-details {
+      text-align: left;
+      float: left;
+   } 
+
+   .main-contents-container .expanded 
+   .like-artwork li:last-child 
+   .title-and-artist {
+      text-align: left;
+   }
+
+
+   .main-contents-container 
+   .like-artwork li:nth-last-child(2) 
+   .artwork-details {
+      text-align: left;
+      float: left;
+   }
+
+   .main-contents-container .expanded 
+   .like-artwork li:nth-last-child(2) 
+   .title-and-artist {
+      text-align: left;
+   }
+
+   .main-contents-content {
+      width: 100%;
+   }
+
+   .main-contents-container .first-row, 
+   .main-contents-container .second-row {
+      flex-direction: column;
+   }
+
+   .main-contents-container ul.horizontal {
+      flex-direction: column;
+   }
+} 
+
+@media (min-width: 0px) and (max-width: 500px) {   
+   
+   .banner-header {
+      width: 100%;
+   }
+
    #mainContents {
       min-width: 0px;
+   }
+
+   .main-contents-content {
+      width: 100%;
+   } 
+
+   #travelArt {
+      width: 200px;
+      height: 200px;
+      top: 0;
+      left: 0;
+      margin-top: 30px;
+   }
+
+   .middle-columns {
+       width: 100%;
+       float: left;
+   }
+
+   .artwork-view .art-title {
+      max-width: 250px;
+      text-align: left;
+   }
+   
+   .mobile-text {
+      display: block;
    }
 
    .main-contents-container .like-artwork 
