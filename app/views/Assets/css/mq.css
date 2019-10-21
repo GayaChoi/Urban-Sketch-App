@@ -1,5 +1,13 @@
 /* media query */
 @media (min-width: 0px) and (max-width: 500px) {   
+    html, body {
+      overflow-x: hidden;
+    }
+
+    body {
+      position: relative;
+    }
+   
     .columns {
        width: 100%;
     }
