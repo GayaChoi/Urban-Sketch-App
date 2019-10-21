@@ -31,7 +31,6 @@ div.animsition {
    position: relative; 
 }
 
-
 #banner {
    background-position: center;
    background-attachment: scroll;   
@@ -184,3 +183,8 @@ div.columns figure figcaption {
 div.columns:hover figure:not(:hover) {
     opacity: 0.4;
 }
+
+div.columns:hover figure:not(:active) {
+   opacity: 0.4;
+}
+
