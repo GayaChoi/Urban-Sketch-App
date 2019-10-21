@@ -1,5 +1,6 @@
 /* media query */
 @media (min-width: 0px) and (max-width: 500px) {   
+   /* 가로 스크롤 사용 해지 */
    html, body {
       overflow-x: hidden;
    }
@@ -10,9 +11,12 @@
  
    .banner-header {
       width: 100%;
-
    }
    
+   .mobile-text {
+      display: block;
+   }
+
    #mainContents {
       min-width: 0px;
    }

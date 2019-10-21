@@ -66,6 +66,10 @@ div#header>a {
 }
 
 /* 메인 컨텐츠 */
+.mobile-text {
+   display: none;
+}
+
 #mainContents {
    position: relative;
    top: 0;
